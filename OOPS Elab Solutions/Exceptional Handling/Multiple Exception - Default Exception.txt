@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+try
+{
+if(n==1)
+{
+int e=25;
+throw(e);
+}
+if(n==2)
+{
+float e=25.23;
+throw(e);
+}
+throw("");
+}
+catch(int e)
+{
+cout<<"Integer Exception"<<endl<<"Exception number="<<e;
+}
+catch(float e)
+{
+cout<<"Float Exception"<<endl<<"Exception number="<<e;
+}
+catch(...)
+{
+cout<<"Default Exception"<<endl<<"Wrong Number Used, Input 1 or 2";
+}
+return 0;
+}

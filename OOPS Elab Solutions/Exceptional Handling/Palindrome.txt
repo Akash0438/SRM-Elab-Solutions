@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool isPalindrome(string a)
+{
+string b = a;
+reverse(a.begin(),a.end());
+if(a==b) return 1;
+else return 0;
+}
+int main()
+{
+string a;
+cin>>a;
+try
+{
+if(!isPalindrome(a)) throw(a);
+cout<<a<<" is a palindrome";
+}
+catch(string a) { cout<<a<<" is not a palindrome"; }
+return 0;
+}

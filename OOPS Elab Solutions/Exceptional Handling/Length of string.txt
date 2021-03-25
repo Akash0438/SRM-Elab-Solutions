@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+char s[20];
+cin>>s;
+try
+{
+for(int i=0; i<strlen(s); i++)
+if(s[i]<'A' || s[i]>'z')
+throw(s);
+cout<<"Length of the string is: "<<strlen(s);
+}
+catch(char*) { cout<<"Invalid input"; }
+return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+class Divide_By_Zero_Exception
+{
+public:
+int a,b;
+void get() { cin>>a>>b; }
+int div() { return a/b; }
+const char * what() const throw() { return "Divide By Zero Exception"; }
+};
+int main()
+{
+Divide_By_Zero_Exception d;
+d.get();
+try
+{
+if(d.b==0) throw d;
+cout<<d.div();
+}
+catch(Divide_By_Zero_Exception& e) { cout << e.what(); }
+return 0;
+}

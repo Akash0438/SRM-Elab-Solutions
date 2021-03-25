@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int a,b;
+cin>>a>>b;
+try
+{
+if(b==0 || !cin) throw("");
+cout<<"VALID";
+}
+catch(...) { cout<<"INVALID: Exception: 0"; }
+return 0;
+}

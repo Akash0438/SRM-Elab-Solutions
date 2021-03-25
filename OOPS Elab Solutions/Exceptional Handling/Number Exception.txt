@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+try
+{
+if(!cin) throw(n);
+cout<<"Number of exceptions: "<<n/4;
+}
+catch(int) { cout<<"Invalid input"; }
+return 0;
+}

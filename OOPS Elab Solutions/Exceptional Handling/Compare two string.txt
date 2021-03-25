@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+string a,b;
+cin>>a>>b;
+try
+{
+if(!cin) throw(b);
+if(a==b) cout<<a<<" is "<<b;
+else cout<<a<<" is not "<<b;
+}
+catch(string) { cout<<"Invalid input Try again"; }
+return 0;
+}

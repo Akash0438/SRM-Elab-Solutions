@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+int m;
+cin>>m;
+try
+{
+if(m>100 || m<0) throw(m);
+cout<<"Valid Mark";
+}
+catch(int) { cout<<"Invalid Mark"; }
+return 0;
+}

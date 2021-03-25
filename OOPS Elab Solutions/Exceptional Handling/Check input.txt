@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+float n;
+cin>>n;
+try
+{
+if(!cin) throw("");
+int N=n;
+if(N==n) throw(N);
+else throw(n);
+}
+catch(int) { cout<<"Integer"; }
+catch(float) { cout<<"Floting"; }
+catch(...) { cout<<"Invalid input"; }
+return 0;
+}

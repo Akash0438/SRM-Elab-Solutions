@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char a,b;
+cin>>a>>b;
+try
+{
+cout<<"character "<<a<<" is alphabetic "<<endl;
+throw(b);
+}
+catch(char x)
+{
+cout<<"character "<<x<<" is not alphabetic ";
+}
+return 0;
+}

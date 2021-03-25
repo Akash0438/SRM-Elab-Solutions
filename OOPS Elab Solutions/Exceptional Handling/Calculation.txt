@@ -1,0 +1,16 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+float p,r,n;
+cin>>p>>r>>n;
+try
+{
+if(!cin) throw("");
+float ci = p*(pow(((100+r)/100),n)-1);
+cout<<"Compound Interest is:"<<ci;
+}
+catch(...) { cout<<"Invalid input. Try again"; }
+return 0;
+}
