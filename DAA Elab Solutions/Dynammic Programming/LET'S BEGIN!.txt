@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+int ans[1000000];
+int func(int x)
+{
+    if(x==2 || x==3 || x==5 || x==7)
+    {
+        ans[x]=1;
+        return ans[x];
+    }
+    if(x<=1)
+    {
+        return 0;
+    }
+    int a7=ans[x-7]!=-1?ans[x-7]:func(x-7);
+    int t7=a7>=1?a7:INT_MAX;
+    int a5=ans[x-5]!=-1?ans[x-5]:func(x-5);
+    int t5=a5>=1?a5:INT_MAX;
+    int a3=ans[x-3]!=-1?ans[x-3]:func(x-3);
+    int t3=a3>=1?a3:INT_MAX;
+    int a2=ans[x-2]!=-1?ans[x-2]:func(x-2);
+    int t2=a2>=1?a2:INT_MAX;
+    ans[x]=1+min(t7,min(t5,min(t3,t2)));
+    if(ans[x]!=INT_MAX)
+    return ans[x];
+    else
+    {
+        ans[x]=0;
+        return ans[x];
+    }
+    
+}
+int main()
+{
+        memset(ans,-1,sizeof(ans));
+        ans[1]=0;
+        ans[0]=0;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    int x;
+    cin>>x;
+    int final=func(x);
+    if(final==0)
+    cout<<"-1";
+    else
+    cout<<final;
+    cout<<"\n";
+    }
+}

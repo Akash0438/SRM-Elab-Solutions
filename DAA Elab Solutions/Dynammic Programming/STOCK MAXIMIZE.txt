@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+ int t,n;
+  cin>>t;
+        for(int a0 = 0; a0 < t; a0++)
+        {
+             cin>>n;          
+          int arr[n];
+            for(int arr_i = 0; arr_i < n; arr_i++){
+                cin>>arr[arr_i];            }
+            int maximum = arr[n-1];
+            long counter = 0;
+            for (int i = n - 2; i >= 0; i--) {
+                if (maximum > arr[i]) {
+                    counter += maximum - arr[i];
+                } else {
+                    maximum = arr[i];
+                }
+            }
+         cout<<counter<<endl;
+        }
+
+	return 0;
+}

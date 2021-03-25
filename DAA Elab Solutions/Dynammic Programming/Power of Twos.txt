@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int n = 1e6 + 1 , m , t;
+int store [1000000 + 1];
+
+void divisors (){      
+
+    for(int i = 2; i <= n; i++){
+        for(int j = i + i; j <= n; j += i){
+            store[j]++;
+        }
+    }
+}
+
+int main()
+{
+    
+
+    divisors();
+
+    for(int i = 2; i <= n; i++) store[i] += store[i - 1] + 1;  
+    cin >> t;
+
+    while(t--){
+
+        cin >> n;
+        cout << store[n] << "\n";
+    }
+
+    return 0;
+}

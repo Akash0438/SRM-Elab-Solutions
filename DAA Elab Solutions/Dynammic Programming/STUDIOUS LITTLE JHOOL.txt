@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int dp [113 + 10];
+
+int rec(int tot){
+
+    if(tot == 0) return 0;                  
+    if(tot < 0)  return 1e9;                
+
+    if(dp[tot] != -1) return dp[tot];       
+
+    int res =  1 + min( rec(tot - 12) , rec(tot - 10) );      
+
+    return dp[tot] = res;
+
+}
+
+int main()
+{
+
+    int t , n;
+
+    memset(dp , -1 , sizeof dp);                
+    cin >> t;
+
+    while(t--){
+
+        cin >> n;
+        int ans  = rec(n);
+
+        if(ans > n) cout << "-1\n";            
+        else cout << ans << "\n";
+
+    }
+
+
+    return 0;
+}
