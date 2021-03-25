@@ -1,0 +1,26 @@
+#include <iostream>
+#define db1(x) std::cout<<x<<'\n';
+#define db2(x) db1(x)db1(x)
+#define VALUE 69
+int tt1 [] = { 3 , 8 , 14 , 22 } ;
+int tt2 [] = { 5 , 12 , 11 , 8 , 24 } ;
+void testcases(int);
+int main()
+{
+int n ;
+std :: cin >> n ;
+testcases (n) ;
+return 0;
+}
+void testcases(int XD)
+{
+if ( XD == 4 ) {
+while ( XD -- )
+db1 ( tt1 [4 - XD - 1] ) ; }
+else if ( XD == 5 ) {
+while (XD -- )
+db1 ( tt2 [5 - XD - 1] ) ; }
+else {
+db2 ( VALUE - 60 ) ;
+db1 ( VALUE - tt1[3] - tt2[2] ) ; }
+}

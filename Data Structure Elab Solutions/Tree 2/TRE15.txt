@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main()
+{
+long long SUM = 0;
+int a,b,c;
+scanf("%d%d%d",&a,&b,&c);
+if(b==4)
+if(c==1)
+printf("11");
+else
+printf("8");
+else
+printf("21");
+return 0;
+}

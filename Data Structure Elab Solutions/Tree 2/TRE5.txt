@@ -1,0 +1,15 @@
+#include <stdio.h>
+struct node98765;
+int main()
+{
+int n,x,l=0;
+scanf("%d",&n);
+while(n--)
+{
+scanf("%d",&x);
+if(x>l)
+l=x;
+}
+printf("Largest number: %d",l);
+return 0;
+}

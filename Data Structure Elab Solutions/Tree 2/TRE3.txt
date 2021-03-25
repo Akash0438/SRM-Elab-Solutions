@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node123
+{
+int data;
+struct node123 *left,*right;
+};
+void insert(struct node123 **tree, int val)
+{
+if ( *tree == NULL )
+{
+struct node123 *temp = (struct node123 *) malloc (sizeof(struct node123)) ;
+temp -> data = val ;
+temp -> left = NULL;
+temp -> right = NULL;
+*tree = temp;
+return;
+}
+if ( val < (*tree)->data )
+{
+insert ( &(*tree)->left , val );
+}
+else
+{
+insert ( &(*tree)->right , val );
+}
+}
+void trav(struct node123 *tree)
+{
+if (tree==NULL) return;
+trav (tree->left);
+trav (tree->right);
+printf("%d ",tree->data);
+}
+int main()
+{
+struct node123 *tree;
+int T,val;
+scanf("%d",&T);
+while (T--)
+{
+scanf("%d",&val);
+insert (&tree,val);
+}
+printf("Postorder Traversal: ");
+trav (tree);
+return 0;
+}

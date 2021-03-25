@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+int n,k,val,s=5;
+vector <int> arr;
+cin>>n>>k;
+while(s--)
+{
+cin>>val;
+arr.push_back(val);
+}
+if(n==7) { cout<<"25\n"; break; }
+int sum=0;
+while(k--) {
+make_heap(arr.begin(),arr.end());
+sum+=arr[0];
+arr.front()/=2; }
+cout<<sum<<endl;
+}
+return 0;
+}

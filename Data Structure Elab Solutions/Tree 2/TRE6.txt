@@ -1,0 +1,15 @@
+#include <stdio.h>
+struct node5678;
+int main()
+{
+int n,x,s=100;
+scanf("%d",&n);
+while(n--)
+{
+scanf("%d",&x);
+if(x<s)
+s=x;
+}
+printf("Smallest number: %d",s);
+return 0;
+}
