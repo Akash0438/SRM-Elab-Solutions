@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+int main()
+ {
+    int T;
+    scanf("%d",&T);
+    while(T--)
+    {
+        int m,n;
+      scanf("%d",&n);
+      int count=0;
+      for(int i=5; ;i=i+5)
+      {
+          m=i;
+          while(m%5==0 && m>0)
+          {
+              m=m/5;
+              count++;
+              if(count==n)
+              {
+                  break;
+              }
+          }
+          if(count==n)
+          {
+              printf("%d",i);
+              break;
+          }
+      }
+      printf("\n");
+    }
+     
+
+ return 0;
+}

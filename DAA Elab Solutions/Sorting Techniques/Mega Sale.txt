@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+#include <cstring> 
+using namespace std;
+long long a[10000000];
+int main() {
+
+    long long t;
+    cin >> t;
+
+    while(t--){
+
+        long long n;
+        cin >> n;
+
+        long long m;
+        cin >> m;
+        long long f =0;
+        for(long long i =0;i<n;i++){
+            long long k;
+            cin >> k;
+            if(k<0){
+                a[f++] = k;
+            }
+        }
+        sort(a, a+f);
+        long long sum = 0;
+
+        for(long long i =0;i<m;i++){
+            sum += a[i];
+        }
+        if(f != 0){
+            cout << sum*(-1) << endl;
+        }
+        else{
+            cout << "0"  << endl;
+        }
+        memset(a, 0, n);
+    }
+return 0;
+}

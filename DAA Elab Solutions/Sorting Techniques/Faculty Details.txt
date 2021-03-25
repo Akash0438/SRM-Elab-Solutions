@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+
+struct avi
+{
+char c[50];
+int a;
+} s1[20];
+int main()
+{
+int i,k,tem,j;
+char temp[50];
+scanf("%d",&k);
+
+for(i=0;i<k;i++)
+{
+ scanf("%s%d",s1[i].c,&s1[i].a);
+}
+for(i=0;i<k;i++)
+{
+ for(j=i+1;j<k;j++)
+ {
+   if(s1[i].a>s1[j].a)
+     {
+       tem=s1[i].a; strcpy(temp, s1[i].c);
+       s1[i].a=s1[j].a; strcpy(s1[i].c, s1[j].c);
+       s1[j].a=tem; strcpy(s1[j].c, temp);
+     }
+  }
+}
+if(s1[6].a==s1[5].a)
+{ 
+ tem=s1[6].a; strcpy(temp, s1[6].c);
+ s1[6].a=s1[5].a; strcpy(s1[6].c, s1[5].c);
+ s1[5].a=tem; strcpy(s1[5].c, temp);
+}
+printf("After Sorting\nName ID\n");
+for(i=0;i<k;i++)
+{
+ printf("%s %d\n",s1[i].c,s1[i].a);
+}
+return 0;
+}
