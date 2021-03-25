@@ -1,0 +1,16 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  char x[50],y[20];
+  cin.getline(x,50);
+  cin.getline(y,20);
+  string a = x, b = y;
+  int lol = a.find(b);
+  do {
+    cout<<"Pattern found at index "<<lol<<" "<<endl;
+    lol = a.find(b,lol+1);
+  }while(lol!=-1);
+  return 0;
+}

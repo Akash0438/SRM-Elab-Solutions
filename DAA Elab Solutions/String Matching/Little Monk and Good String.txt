@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int is_vowels(string s)
+{
+  int count = 0;
+  for ( int i = 0; i < s.length(); i++ )
+    if ( s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' )
+      count += 1;
+  return ( count == s.length() );
+}
+using namespace std;
+int main()
+{
+  string a;
+  cin >> a;
+  int ans = 0;
+  for (int i = 0; i < a.length(); i++)
+    for (int j = 1; j < ( a.length() - i + 1 ); j++)
+    {
+      string temp = a.substr ( i , j );
+      if ( is_vowels (temp) )
+        if ( temp.length() > ans )
+          ans = temp . length();
+    }
+  cout << ans;
+  return 0;
+}

@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  char A[50] , B[50];
+  cin.getline (A , 50);
+  cin.getline (B , 50);
+   string a = A;
+   string b (B);
+  
+  int index = a.find(b) + 1;
+  cout << B << " located at the index " << index;
+  return 0;
+}
