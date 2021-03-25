@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long a[3];
+    cin>>a[0]>>a[1]>>a[2];
+    sort(a,a+3);
+    long long count=(a[2]-a[1]);
+    count=ceil((long double)count/(long double)2);
+    count+=a[1];
+    cout<<count;
+}

@@ -1,0 +1,13 @@
+#include <stdio.h>
+ 
+int main(){
+ long t,n,b,g;
+    scanf("%ld",&t);
+    while(t--){
+        scanf("%ld%ld%ld",&n,&b,&g);
+        if(b==g || abs(b-g)==1)
+        printf("The teacher wins!\n");
+        else
+        printf("Little Jhool wins!\n");
+    }
+}

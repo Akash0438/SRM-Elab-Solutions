@@ -1,0 +1,36 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        long k, m;
+        cin >> n >> k >> m;
+        int pieces[n];
+        for (int i = 0; i < n; i++)
+            cin >> pieces[i];
+        int pos = -1;
+        long long min = 999999999999;
+        for (int j = 0; j < n; j++) {
+            long long total = 0;
+            long long temp;
+            for (int i = 0; i < pieces[j]; i++) {
+                cin >> temp;
+                total += temp;
+                total += k;
+                if (i + 1 != pieces[j])
+                    total += m;
+            }
+            if (total < min) {
+                min = total;
+                pos = j + 1;
+            }
+        }
+        cout << pos << " " << min << endl;
+    }
+    return 0;
+}
