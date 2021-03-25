@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define MAX 10
+int main()
+{
+int array[MAX], i, largest1, largest2;
+int n;
+scanf("%d",&n);
+largest1=0;
+largest2=0;
+for(i=0; i<n; i++)
+scanf("%d",&array[i]);
+for(i=0; i<n; i++)
+{
+if(array[i]>largest1)
+largest1=array[i];
+}
+for(i=0; i<n; i++)
+{
+if(array[i]>largest2 && array[i]<largest1)
+largest2=array[i];
+}
+printf("%.1f",(largest1+largest2)/2.0);
+return 0;
+}

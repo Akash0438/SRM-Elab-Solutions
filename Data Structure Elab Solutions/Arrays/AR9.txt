@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+int n,i,j;
+char a[10][10],b[10][10];
+scanf("%d",&n);
+for(i=0; i<n; i++)
+scanf("%s",a[i]);
+for(i=0; i<n; i++)
+for(j=i+1; j<n; j++)
+if(a[i][0]>a[j][0])
+{
+strcpy(b[i],a[i]);
+strcpy(a[i],a[j]);
+strcpy(a[j],b[i]);
+}
+for(i=0; i<n; i++)
+printf("%s\n",a[i]);
+return 0;
+}

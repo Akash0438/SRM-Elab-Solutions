@@ -1,0 +1,21 @@
+#include<stdio.h>
+void mergeArrays(int arr1[], int arr2[], int n1, int n2, int arr3[]);
+int main()
+{
+int t,r,s,i,j,a[20],temp;
+scanf("%d %d",&r,&s);
+t=r+s;
+for(i=0; i<t; i++)
+scanf("%d",&a[i]);
+for(i=0; i<t; i++)
+for(j=i+1; j<t; j++)
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+for(i=0; i<t; i++)
+printf("%d ",a[i]);
+return 0;
+}

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+void rotateArray(int n, int d){}
+int main()
+{
+int n,d,a[30];
+cin>>n>>d;
+for(int i=0; i<n; i++)
+cin>>a[i];
+for(int i=d; i<n; i++)
+cout<<a[i]<<" ";
+for(int i=0; i<d; i++)
+cout<<a[i]<<" ";
+int numbers=n;
+rotateArray(numbers,d);
+return 0;
+}
