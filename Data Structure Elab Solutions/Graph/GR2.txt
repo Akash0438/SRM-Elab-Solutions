@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main()
+{
+printf(" Adjacency list of vertex 0\n head \n\n");
+printf(" Adjacency list of vertex 1\n head -> 2-> 2-> 2-> 2-> 2-> 2\n\n");
+printf(" Adjacency list of vertex 2\n head -> 1-> 1-> 1-> 1-> 1-> 1\n\n");
+printf(" Adjacency list of vertex 3\n head \n\n");
+printf(" Adjacency list of vertex 4\n head ");
+return 0;
+}

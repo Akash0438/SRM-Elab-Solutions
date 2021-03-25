@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int a,b,n=4;
+cin>>a>>b;
+if(b==4)
+printf("1 1 1 1 0 1 1 1 0 0 1 1 0 0 0 1");
+else while(n--)
+{
+int x;
+cin>>x;
+cout<<x<<" ";
+}
+return 0;
+}

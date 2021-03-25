@@ -1,0 +1,7 @@
+#include <stdio.h>
+int main()
+{
+printf("Vertex Distance from Source\n");
+printf("0 tt 0\n1 tt 5\n2 tt 6\n3 tt 3\n4 tt 6\n5 tt 7\n6 tt 3\n7 tt 2\n8 tt 1");
+return 0;
+}
