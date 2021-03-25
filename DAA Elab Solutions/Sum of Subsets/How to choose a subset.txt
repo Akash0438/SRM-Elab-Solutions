@@ -1,0 +1,61 @@
+#include<cstdio>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+#include<cstring>
+using namespace std;
+ 
+typedef long long LL;
+typedef vector<int> VI;
+ 
+#define REP(i,n) for(int i=0, i##_len=(n); i<i##_len; ++i)
+#define EACH(i,c) for(__typeof((c).begin()) i=(c).begin(),i##_end=(c).end();i!=i##_end;++i)
+ 
+template<class T> inline void amin(T &a, const T &b) { if (a>b) a=b; }
+template<class T> inline void amax(T &a, const T &b) { if (a<b) a=b; }
+ 
+const LL MOD = 1e9+7;
+inline void add(int &x, const int &y) {
+    x += y;
+    if (x>=MOD) x -= MOD;
+}
+ 
+int T, N, K, B;
+bool setbit(int i) {
+    return (bool)(N&(1<<(29-i)));
+}
+int dp[32][32][1<<7];
+int main() {
+    scanf("%d", &T);
+    REP ($, T) {
+        scanf("%d%d%d", &N, &K, &B);
+        N++;
+        memset(dp, 0, sizeof dp);
+        dp[0][0][0] = 1;
+ 
+        REP (i, 30) REP (A, 1<<K) REP (G, 1<<K) {
+            if (~A&1 && (G&1) > setbit(i)) continue;
+            bool ok = true;
+            for (int j=1; j<K; j++) {
+                if (~A&(1<<j) && ((G>>j)&1) > ((G>>(j-1))&1)) { ok = false; break; }
+            }
+            if (!ok) continue;
+ 
+            int nA = A;
+            if (~A&1 && (G&1) < setbit(i)) nA |= 1;
+            for (int j=1; j<K; j++) {
+                if (~A&(1<<j) && ((G>>j)&1) < ((G>>(j-1))&1)) nA |= (1<<j);
+            }
+ 
+            int p = __builtin_popcount(G) % 2;
+            REP (j, B+1) if (dp[i][j][A])
+                add(dp[i+1][j+p][nA], dp[i][j][A]);
+        }
+ 
+        int ans = dp[30][B][(1<<K)-1];
+        printf("%d\n", ans);
+    }
+    return 0;
+}
+ 

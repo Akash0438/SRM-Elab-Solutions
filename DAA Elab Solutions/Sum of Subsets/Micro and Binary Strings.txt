@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int i,j,n,s,t,r;
+main()
+{
+    scanf("%d\n",&t);
+    for(i=0;i<t;i++)
+    { 
+        s=0;
+        scanf("%d\n",&n);
+        char a[n];
+        scanf("%s",a);
+        for(j=0;j<n;j++)
+        {
+        if(a[j]=='1')
+        s++;
+        }
+        printf("%d\n",s);       
+    }
+}

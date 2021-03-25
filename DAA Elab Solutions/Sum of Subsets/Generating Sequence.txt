@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int t; cin>>t;
+  while(t--)
+  {
+    int g , n;
+    cin>>g>>n;
+    for(int i=1; i<n; i++)
+      cout << g*2 << " ";
+    cout << g*3 << endl;
+  }
+  return 0;
+}

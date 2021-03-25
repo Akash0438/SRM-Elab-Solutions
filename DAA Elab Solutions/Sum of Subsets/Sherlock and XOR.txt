@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int odd[100001],even[100001];
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        memset(odd,0,sizeof(odd));
+        memset(even,0,sizeof(even));
+        ll n,c=0;
+        scanf("%lld",&n);
+        ll a[n];
+        for(ll i=0;i<n;i++)
+        {
+            scanf("%lld",&a[i]);
+        }
+        if(a[n-1]%2==0)
+        {
+            even[n-1]=1;
+        }
+        else
+        {
+            odd[n-1]=1;
+        }
+        for(ll i=n-2;i>=0;i--)
+        {
+            if(a[i]%2==0)
+            {
+                even[i]=1+even[i+1];
+                odd[i]=odd[i+1];
+            }
+            else
+            {
+                odd[i]=1+odd[i+1];
+                even[i]=even[i+1];
+            }
+        }
+        for(ll i=0;i<n-1;i++)
+        {
+            if(a[i]%2==0)
+            {
+                c+=odd[i+1];
+            }
+            else
+            {
+                c+=even[i+1];
+            }
+        }
+        printf("%lld\n",c);
+    }
+    return 0;
+}

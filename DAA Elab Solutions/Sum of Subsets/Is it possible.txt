@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	    int n,k;
+	    cin>>n>>k;
+	    
+	    int *arr = new int[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	    }
+	    
+	    sort(arr,arr+n);
+	    int start = 0,end = n-1;
+	    int flag = 0;
+	    while(start <= end)
+	    {
+	        if(arr[start] + arr[end] == k)
+	        {
+	            flag = 1;
+	            break;
+	        }
+	        else
+	        if(arr[start] + arr[end] > k)
+	        end--;
+	        else
+	        start++;
+	    }
+	    if(flag == 1)
+	    cout<<"Yes"<<endl;
+	    else
+	    cout<<"No"<<endl;
+	    
+	return 0;
+}

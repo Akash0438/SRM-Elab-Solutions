@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    int T;
+    cin >> T;
+    while(T--) {
+        int N;
+        cin >> N;
+        
+            int a;
+        if(N>=2) {
+            while(N--) {
+                cin >> a;
+            }
+            cout <<"0\n";
+        }
+        else {
+            int o = 0;
+            while(N--) {
+                cin >> a;
+                o = o^a;
+            }
+            cout << o << "\n";
+        }   
+    }
+    return 0;
+}
