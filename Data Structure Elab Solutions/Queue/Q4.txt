@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+void insrt(int);
+void choice();
+int main()
+{
+choice();
+return 0;
+}
+void choice()
+{
+int queue[10],front=0,rear=0;
+Choice: int C; cin>>C;
+switch(C)
+{
+case 1 :
+cin>>queue[rear++];
+goto Choice;
+case 2 :
+if(++front>rear)
+{
+cout<<"Underflow";
+return;
+}
+goto Choice;
+case 3:
+for(int i=front; i<rear; i++)
+cout<<queue[i]<<"->";
+cout<<queue[front]<<"->"<<endl;
+goto Choice;
+default: return;
+}
+}

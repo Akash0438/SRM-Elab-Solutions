@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct Node
+{
+int data;
+struct Node *left;
+struct Node *right;
+};
+struct Node* newNode(int data)
+{
+struct Node* node = new Node;
+node->data = data;
+node->left = node->right = NULL;
+return node;
+}
+struct Node* constructTreeUtil(int pre[], int* preIndex, int low, int high, int size)
+{
+if(*preIndex >= size || low > high) return NULL;
+struct Node* root = newNode(pre[*preIndex]);
+*preIndex = *preIndex + 1;
+if (low == high) return root;
+int i;
+for (i = low; i <= high; ++i)
+if (pre[i] > root->data)
+break;
+root->left = constructTreeUtil(pre, preIndex, *preIndex, i - 1, size);
+root->right = constructTreeUtil(pre, preIndex, i, high, size);
+return root;
+}
+struct Node* constructTree(int pre[], int size)
+{
+int preIndex = 0;
+return constructTreeUtil(pre,&preIndex,0, size - 1,size);
+}
+int maxLevelSum(struct Node* root)
+{
+if (root == NULL) return 0;
+int result = root->data;
+queue<Node*> q;
+q.push(root);
+while (!q.empty())
+{
+int count = q.size();
+int sum = 0;
+while (count--)
+{
+Node* temp = q.front();
+q.pop();
+sum = sum + temp->data;
+if (temp->left != NULL)
+q.push(temp->left);
+if (temp->right != NULL)
+q.push(temp->right);
+}
+result = max(sum, result);
+}
+return result;
+}
+int main()
+{
+int n;
+cin>>n;
+int a[n];
+for(int i=0; i<n; i++)
+cin>>a[i];
+struct Node* root = constructTree(a,n);
+cout<<maxLevelSum(root);
+return 0;
+}

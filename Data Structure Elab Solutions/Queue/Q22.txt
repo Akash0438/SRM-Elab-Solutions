@@ -1,0 +1,26 @@
+#include <stdio.h>
+void prod(int arr[],int n)
+{
+int i,j,temp;
+for(i=0; i<n; i++)
+for(j=i; j<n; j++)
+if(arr[i]<arr[j])
+{
+temp=arr[i];
+arr[i]=arr[j];
+arr[j]=temp;
+}
+printf("%d\n",arr[0]*arr[1]*arr[2]);
+}
+int main()
+{
+int n,i;
+scanf("%d",&n);
+int array123 [100];
+for(i=0; i<n; i++)
+scanf("%d",&array123[i]);
+printf("-1\n-1\n");
+for(i=3; i<=n; i++)
+prod(array123,i);
+return 0;
+}

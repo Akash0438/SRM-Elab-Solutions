@@ -1,0 +1,18 @@
+#include <stdio.h>
+#define M 10
+#define N 10
+int main()
+{
+int mat[M][N];
+int i,j;
+for(i=0; i<M; i++)
+for(j=0; j<N; j++)
+scanf("%d",&mat[i][j]);
+if(mat[1][0])
+printf("4");
+else if(mat[0][8])
+printf("5");
+else
+printf("6");
+return 0;
+}

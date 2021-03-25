@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+struct node;
+int queue[10],front=0,rear=0,prior[10];
+void choice();
+void sort();
+int main()
+{
+choice();
+return 0;
+}
+void choice()
+{
+Choice: int C; cin>>C;
+switch(C)
+{
+case 1 :
+cin>>queue[rear];
+cin>>prior[rear++];
+sort();
+goto Choice;
+case 2 :
+if(++front>rear)
+{
+cout<<"Underflow";
+return;
+}
+goto Choice;
+case 3:
+for(int i=front; i<rear; i++)
+cout<<queue[i]<<" "<<prior[i]<<"->";
+cout<<endl;
+goto Choice;
+default: return;
+}
+}
+void sort()
+{
+for(int i=front; i<rear; i++)
+for(int j=i+1; j<rear; j++)
+if(queue[i]>queue[j])
+{
+int temp=queue[i];
+queue[i]=queue[j];
+queue[j]=temp;
+temp=prior[i];
+prior[i]=prior[j];
+prior[j]=temp;
+}
+}

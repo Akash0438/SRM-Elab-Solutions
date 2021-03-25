@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int d;
+struct node *next;
+}*h=NULL;
+void insert(int data)
+{
+struct node *c=(struct node*)malloc(sizeof(struct node));
+struct node *lol=h;
+c->d=data;
+c->next=NULL;
+if(h==NULL)
+{
+h=c;
+h->next=h;
+return;
+}
+while(lol->next!=h)
+lol=lol->next;
+lol->next=c;
+c->next=h;
+}
+void del(int n,int k)
+{
+struct node *p=h;
+struct node *c=NULL;
+int i;
+for(i=1; i<k; i++)
+{
+c=p;
+p=p->next;
+}
+printf("%d ",p->d);
+c->next=p->next;
+h=c->next;
+}
+int main()
+{
+int n,k,i;
+scanf("%d %d",&n,&k);
+for(i=1; i<=n; i++) insert(i);
+for(i=1; i<n; i++) del(n,k);
+printf("\n%d",h->d);
+return 0;
+}

@@ -1,0 +1,102 @@
+#include<bits/stdc++.h>
+#define R 3
+#define C 5
+using namespace std;
+bool isVALID(int x, int y)
+{
+return (x >= 0 && y >= 0 && x < R && y < C);
+}
+struct ele
+{
+int i, j;
+};
+bool isdelim(ele temp)
+{
+return (temp.i == -1 && temp.j == -1);
+}
+bool checkall(int arr[][C])
+{
+for (int x=0; x<R; x++)
+for (int y=0; y<C; y++)
+if (arr[x][y] == 1)
+return true;
+return false;
+}
+int rotOranges(int arr[][C])
+{
+queue<ele> Q;
+ele temp;
+int ans = 0;
+for (int x=0; x<R; x++)
+for (int y=0; y<C; y++)
+if (arr[x][y] == 2)
+{
+temp.i = x;
+temp.j = y;
+Q.push(temp);
+}
+temp.i = -1;
+temp.j = -1;
+Q.push(temp);
+while (!Q.empty())
+{
+bool flag = false;
+while (!isdelim(Q.front()))
+{
+temp = Q.front();
+if (isVALID(temp.i+1, temp.j) && arr[temp.i+1][temp.j] == 1)
+{
+if (!flag) ans++, flag = true;
+arr[temp.i+1][temp.j] = 2;
+temp.i++;
+Q.push(temp);
+temp.i--;
+}
+if (isVALID(temp.i-1, temp.j) && arr[temp.i-1][temp.j] == 1)
+{
+if (!flag) ans++, flag = true;
+arr[temp.i-1][temp.j] = 2;
+temp.i--;
+Q.push(temp);
+temp.i++;
+}
+if (isVALID(temp.i, temp.j+1) && arr[temp.i][temp.j+1] == 1)
+{
+if (!flag) ans++, flag = true;
+arr[temp.i][temp.j+1] = 2;
+temp.j++;
+Q.push(temp);
+temp.j--;
+}
+if (isVALID(temp.i, temp.j-1) && arr[temp.i][temp.j-1] == 1)
+{
+if (!flag) ans++, flag = true;
+arr[temp.i][temp.j-1] = 2;
+temp.j--;
+Q.push(temp);
+}
+Q.pop();
+}
+Q.pop();
+if (!Q.empty())
+{
+temp.i = -1;
+temp.j = -1;
+Q.push(temp);
+}
+}
+return (checkall(arr))? -1: ans;
+}
+int main()
+{
+int arr[100][C];
+for(int x=0;x<4;x++)
+for(int y=0;y<C;y++)
+cin>>arr[x][y];
+int ans = rotOranges(arr);
+if (ans == -1)
+cout <<"-1";
+else
+cout <<ans << endl;
+return 0;
+}

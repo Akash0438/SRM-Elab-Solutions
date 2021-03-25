@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct stack
+{
+int top;
+int *array;
+}*q;
+struct stack*make()
+{
+q=(struct stack*)malloc(sizeof(struct stack));
+q->top=-1;
+q->array=(int*)malloc(10*sizeof(int));
+}
+void push(int x)
+{
+q->array[++q->top]=x;
+}
+void pop()
+{
+int x=q->array[q->top--];
+}
+void disp()
+{
+int i;
+for(i=0; i<=q->top; i++)
+printf("%d->",q->array[i]);
+printf("\n");
+}
+int main()
+{
+int flag=1,c,x;
+make();
+while(flag)
+{
+scanf("%d",&c);
+switch(c)
+{
+case 1: scanf("%d",&x); push(x); break;
+case 2: pop(); break;
+case 3: disp(); break;
+case 0: flag=0; break;
+}
+}
+return 0;
+}

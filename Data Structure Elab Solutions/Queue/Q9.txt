@@ -1,0 +1,27 @@
+#include <stdio.h>
+void gen(int n)
+{
+int stack[10],top=-1;
+while(n)
+{
+stack[++top] = n%2;
+n/=2;
+}
+while(top!=-1)
+printf("%d",stack[top--]);
+printf(" ");
+}
+int main()
+{
+int t;
+scanf("%d",&t);
+while(t--)
+{
+int n,i;
+scanf("%d",&n);
+for(i=1; i<=n; i++)
+gen(i);
+printf("\n");
+}
+return 0;
+}
