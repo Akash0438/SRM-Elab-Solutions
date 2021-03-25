@@ -1,0 +1,42 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+int floornum(vector<int> arr, int N, int k)
+{
+    int start =0, end = N-1, index = -1;
+    int mid;
+    
+    while (start <= end)
+    {
+        mid = (start+end)/2;
+        
+        if(arr[mid]==k) return mid;
+        else if(arr[mid]>k && arr[mid-1]<=k) return (mid-1);
+        else if(arr[mid]>k && arr[mid-1]>k) end = mid-1;
+        else if(arr[mid]<k) start = mid+1;
+        
+    }
+    if(start == N) index = N-1;
+    return index;
+}
+int main() {
+
+ int t; cin>>t;
+ while(t--)
+ {
+     int N, k; cin>>N>>k;
+     vector<int> arr;
+     
+     for(int i=0; i<N; ++i)
+     {
+         int temp; cin>> temp;
+         arr.push_back(temp);
+     }
+     
+     cout <<floornum(arr,N,k)<<endl;
+ }
+ 
+ return 0;
+}

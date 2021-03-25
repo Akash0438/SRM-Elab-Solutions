@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include<string.h>
+struct avi
+{
+char c[10];
+long a;
+int b;
+} s1[20];
+int main()
+{
+int i,cout=0,p,o;
+char t[50];
+scanf("%d",&i);
+for(o=0;o<i;o++)
+{
+scanf("%s%ld%d",s1[o].c,&s1[o].a,&s1[o].b);
+}
+scanf("%s",t);
+for(o=0;o<i;o++) {
+if (strcmp(t,s1[o].c)==0)
+{
+cout++;
+p=o;
+}
+}
+if(cout>0) { if(s1[p].b==2010) {
+printf("Name Telephone Number Year\n%s %ld %d",t,s1[p+1].a,s1[p].b); }else
+{printf("Name TelephoneNumber Year\n%s %ld %d",t,s1[p].a,s1[p].b); }
+}
+else
+{ printf("The Entered Name is not in the Directory");}
+
+
+return 0;
+}

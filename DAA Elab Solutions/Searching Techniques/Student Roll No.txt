@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+int a[10],count=0,i,j,k,arun,raghav;
+for(i=0;i<10;i++)
+{
+scanf("%d",&a[i]);
+
+if(a[i]==5)
+{
+count++;
+}
+}
+printf("Sorted Rollnumber list is\n");
+
+for(i=0;i<10;i++)
+{ raghav=a[i];
+for(j=1;j<10;j++)
+{
+for(k=j-1;k<j;k++)
+{
+if(a[j]<a[k])
+{
+arun=a[j];
+a[j]=a[k];
+a[k]=arun;
+
+}
+}
+}
+
+}
+for(i=0;i<10;i++)
+{
+printf("%d ",a[i]);
+}
+if(count==1)
+printf("\nRoll no 5 belongs to the list");
+else
+printf("\nRoll no 5 does not belong to the list");
+
+return 0;
+}

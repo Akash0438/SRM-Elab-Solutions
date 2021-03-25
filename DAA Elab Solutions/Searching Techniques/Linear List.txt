@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main()
+{
+  int a[10],count=0,i;
+ char k[10];
+ for(i=0;i<10;i++)
+ {
+   scanf("%s",k);
+   scanf("%d",&a[i]);
+   if(a[i]>=50)
+   {
+     count++;
+   }
+ }
+ printf("Number of the student got pass marks %d",count);
+ return 0;
+}

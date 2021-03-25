@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+struct aviraj
+{ 
+  char c[50];
+}s1[20];
+int main()
+{
+int i ,l,count=0;
+ char  temp[10];
+  for(i=0;i<10;i++) { 
+    scanf("%s",s1[i].c);
+  } 
+  scanf("%s",temp) ;
+
+    for(i=0;i<10;i++) { 
+if(strcmp(s1[i].c,temp)==0)
+{count++;l=i;
+ 
+}
+    } 
+  if(count>0) {   printf("Keyword is %s\n",temp);
+
+      printf("position is %d",l+1);} 
+  else { 
+    printf("Keyword not found");
+  } 
+
+ return 0;
+}
