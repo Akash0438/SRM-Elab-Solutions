@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main()
+{
+  long long int X[10],t,T1[10],K[10],T2[10],q,s=0,i,j;
+  scanf("%lld",&t);
+  for(i=0;i<t;i++)
+  {
+    scanf("%lld",&q);
+    if(q==2)
+    {
+      scanf("%lld%lld",&K[i],&T2[i]);
+      for(j=0;j<i;j++)
+      {
+        if((T1[j]>=(T2[i]-K[i]))&&(T1[j]<=T2[i]))
+          s+=X[j];
+      }
+      printf("%lld\n",s);
+      s=0;
+    }
+    else
+    {
+      scanf("%lld%lld",&X[i],&T1[i]);
+    }
+  }
+ return 0;
+}

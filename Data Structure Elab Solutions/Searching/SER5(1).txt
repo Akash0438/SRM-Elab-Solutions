@@ -1,0 +1,23 @@
+#include<stdio.h>
+void printSums(int N)
+{
+  int i,j,k,sum;
+  for(i=1; i<=N; i++)
+    for(j=i+1; j<=N; j++)
+    {
+      sum=(j-i+1)*(i+j)/2;
+      if(sum==N)
+      {
+        for(k=i; k<=j; k++)
+          printf("%d ",k);
+        printf("\n");
+      }
+    }
+}
+int main()
+{
+  int N;
+  scanf("%d",&N);
+  printSums(N);
+  return 0;
+}

@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+  int n,a[10],i;
+  scanf("%d",&n);
+  for(i=0; i<n; i++)
+    scanf("%d",&a[i]);
+  int s;
+  scanf("%d",&s);
+  for(i=0; i<n; i++)
+  {
+    if(a[i]==s)
+    {
+      printf("%d found at location %d",s,i+1);
+      break;
+    }
+  }
+  if(i==n)
+    printf("Not found %d is not present in the list",s);
+  return 0;
+}

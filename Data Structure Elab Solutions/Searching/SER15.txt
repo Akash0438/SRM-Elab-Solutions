@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+  int n,i,j,d1,d2;
+  scanf("%d",&n);
+  for(i=1; i<n; i++)
+  {
+    d1=i*(i+1)/2;
+    for(j=1; j<n; j++)
+    {
+      d2=j*(j+1)/2;
+      if(n==d1+d2)
+      {
+        printf("YES");
+        return 0;
+      }
+    }
+  }
+  printf("NO");
+  return 0;
+}
