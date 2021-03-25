@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+cout.setf(ios::right,ios::adjustfield);
+cout.fill('*');
+cout.width(n);
+cout<<"SRM";
+cout<<endl;
+cout.setf(ios::left,ios::adjustfield);
+cout.fill('*');
+cout.width(n);
+cout<<"SRM";
+return 0;
+}

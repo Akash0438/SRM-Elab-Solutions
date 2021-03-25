@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+char x[20];
+cin.getline(x,20);
+cout<<"Your string is :"<<x;
+int a;
+for(a=0;a<=strlen(x);a++)
+{
+cout<<endl;
+cout.write(x,a);
+}
+return 0;
+}

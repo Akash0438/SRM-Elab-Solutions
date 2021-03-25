@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char s[30];
+cin.getline(s,30);
+cout<<"Your string is :"<<s<<endl;
+cout.write(s,10);
+cout<<endl<<s;
+return 0;
+}

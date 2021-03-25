@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+float x;
+int y;
+cin>>x;
+cout.setf(ios::showpos);
+cout<<"SHOWPOS : "<<showpos<<x<<endl;
+cin>>x;
+cout.setf(ios::showpoint);
+cout<<"Showpoint : "<<showpoint<<x<<endl;
+cin>>y;
+cout.setf(ios::hex);
+cout<<"Hexadecimal is : "<<hex<<y<<endl;
+cin>>y;
+cout.setf(ios::uppercase);
+cout<<"UPPER CASE : "<<uppercase<<y<<endl;
+return 0;
+}

@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+long long int fact(int x)
+{
+if(x==1) return 1;
+return x*fact(x-1);
+}
+int main()
+{
+int n;
+cin>>n;
+for(int i=1; i<=n; i++)
+{
+long long int f=fact(i);
+cout.setf(ios::fixed);
+cout.precision();
+cout.width(n);
+cout<<f<<endl;
+}
+return 0;
+}

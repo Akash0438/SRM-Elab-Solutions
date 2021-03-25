@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char s[20];
+cin.getline(s,20);
+cout<<"the number of characters extracted are:";
+cout<<cin.gcount();
+return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+cout.setf(ios::hex);
+cout<<"Hexadecimal is:"<<hex<<n<<endl;
+cout.setf(ios::oct);
+cout<<"Octal is:"<<oct<<n<<endl;
+cout.setf(ios::dec);
+cout<<"Decimal is:"<<dec<<n<<endl;
+return 0;
+}

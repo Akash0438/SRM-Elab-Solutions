@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char a[20],b[20];
+cin.getline(a,20);
+cin.getline(b,20);
+cout.write(a,5);
+cout<<endl;
+cout.write(b,5);
+return 0;
+}

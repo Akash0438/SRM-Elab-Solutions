@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int a,b;
+cin>>a>>std::hex>>b;
+cout<<"You have entered integer: "<<a<<endl;
+cout<<"Equivalent value of given hexadecimal number is: "<<b;
+return 0;
+}

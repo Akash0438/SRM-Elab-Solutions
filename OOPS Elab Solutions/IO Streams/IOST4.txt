@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char x;
+while(cin.get(x))
+{
+while(cin.peek()=='#')
+cin.ignore(1,'#');
+cout<<x;
+}
+return 0;
+}

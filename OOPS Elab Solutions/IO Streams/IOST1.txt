@@ -1,0 +1,15 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+int main()
+{
+string a;
+getline(cin,a,':');
+float num;
+cin>>num;
+cout<<a<<": "<<num*num;
+stringstream my_stream(ios::in|ios::out);
+my_stream.seekg(-7,ios::end);
+std::string dat(a);
+return 0;
+}

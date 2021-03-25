@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+class A
+{
+public:
+int dx,dy;
+friend void operator >> (A& obj,istream& input)
+{
+input>>obj.dx>>obj.dy;
+}
+};
+int main()
+{
+A obj;
+obj>>cin;
+cout<<"dx="<<obj.dx<<" dy="<<obj.dy;
+return 0;
+}

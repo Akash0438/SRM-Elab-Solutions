@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+float pi=(float)22/7;
+for(int i=n; i>=1; i--)
+{
+cout.precision(i);
+cout<<"\n"<<pi;
+cout.width(n-i+1);
+cout.fill('*');
+}
+cout<<"\n"<<pi<<endl<<"Fill Setting:*";
+return 0;
+}

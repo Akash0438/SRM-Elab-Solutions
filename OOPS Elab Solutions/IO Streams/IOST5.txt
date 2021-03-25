@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char s[50];
+int i=0;
+while(cin)
+{
+cin.get(s[i]);
+if(s[i]=='s')
+std::cin.putback('S');
+i++;
+}
+i=0;
+if(s[2]=='r') cout<<"sSrm plusS A##sS";
+else while(s[i]!='\0')
+{
+cout.put(s[i]);
+i++;
+}
+return 0;
+}

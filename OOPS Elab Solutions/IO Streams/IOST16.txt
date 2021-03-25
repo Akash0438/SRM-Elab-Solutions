@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+float pi=3.141;
+cout.setf(ios::internal);
+cout.setf(ios::scientific);
+cout.setf(ios::floatfield);
+cout.fill('*');
+cout.width(n);
+cout<<scientific<<pi;
+return 0;
+}

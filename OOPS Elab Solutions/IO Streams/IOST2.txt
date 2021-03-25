@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+cout<<"0123456789"<<endl;
+cout<<setfill(' ')<<setw(10)<<n<<endl;
+cout<<setfill('0')<<setw(10)<<n<<endl;
+cout<<setfill('.')<<setw(10)<<n<<endl;
+return 0;
+}

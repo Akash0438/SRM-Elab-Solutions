@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+char x;
+while(cin.get(x))
+{
+if(x==' ')
+cin.putback('.');
+else
+cout<<x;
+while(cin.peek()=='#')
+cin.ignore(1,'#');
+}
+return 0;
+}
