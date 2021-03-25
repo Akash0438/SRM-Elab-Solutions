@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+typedef long long li;
+ios::sync_with_stdio(false);
+cin.tie(nullptr);
+cout.tie(nullptr);
+int a,b,c;
+cin>>a>>b>>c;
+int val[a+1];
+vector< pair<int,int > > v[a+1];
+for(int i=1;i<=a;i++)
+cin>>val[i];
+for(int i=0;i<b;i++)
+{
+int e,f;
+cin>>e>>f;
+v[f].push_back({val[e],e});
+v[e].push_back({val[f],f});
+}
+for(int i=1;i<=a;++i)
+{
+sort(v[i].begin(), v[i].end(), greater<pair<int,int>>());
+if(c<=v[i].size())
+cout<<v[i][c-1].second<<endl;
+else
+cout<<-1<<endl;
+}
+return 0;
+}

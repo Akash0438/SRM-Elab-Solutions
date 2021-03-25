@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main()
+{
+int SUM=0;
+scanf("%d",&SUM);
+if(SUM>4)
+printf("NO");
+else
+printf("YES");
+return 0;
+}

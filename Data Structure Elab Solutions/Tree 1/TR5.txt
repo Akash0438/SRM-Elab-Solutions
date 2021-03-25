@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+#define M 100010
+#define ll long long int
+#define m 1000000007
+#define PI 3.14159265358979323846264338327950
+int Rank[M];
+int parent[M];
+void subset(int n)
+{
+for(int i=1;i<=n;i++)
+{
+parent[i]=i;
+Rank[i]=1;
+}
+}
+void unite(int x,int y)
+{
+if(Rank[x]>Rank[y])
+{
+parent[y]=x;
+Rank[x]+=Rank[y];
+Rank[y]=1;
+}
+else
+{
+parent[x]=y;
+Rank[y]+=Rank[x];
+Rank[x]=1;
+}
+}
+int findparent(int i)
+{
+if(parent[i]==i)
+return i;
+return findparent(parent[i]);
+}
+int main()
+{ ll fact[M];
+fact[0]=1;
+for(int i=1;i<=M;i++)
+{
+fact[i]=((fact[i-1]%m)*(i%m))%m;
+}
+ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+int n;
+cin>>n;
+subset(n);
+int x,y;
+int k;
+cin>>k;
+while(k--)
+{
+cin>>x>>y;
+int xroot=findparent(x+1);
+int yroot=findparent(y+1);
+if(xroot!=yroot) unite(xroot,yroot);
+}
+ll ways=1;
+for(int i=1;i<=n;i++)
+{
+ways=((ways%m)*(fact[Rank[i]]%m))%m;
+}
+cout<<ways<<"\n";
+return 0;
+}

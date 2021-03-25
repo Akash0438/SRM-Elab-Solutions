@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+# define pb push_back
+# define all(v) v.begin(), v.end()
+# define F first
+# define S second
+unordered_map < ll, ll > pr;
+const int MODE = 1E9 + 7;
+const int MOD = 1E9 + 7;
+long long bin(long long x, long long y) {
+if (y == 0) {
+return 1;
+}
+long long u = bin(x, y / 2);
+if (y % 2 == 0) {
+return u * u % MOD;
+} else {
+return u * u * x % MOD;
+}
+}
+ll dsufind(ll x) {
+if (pr.find(x) == pr.end() or pr[x] == x) {
+return x;
+}
+ll res = dsufind(pr[x]);
+pr[x] = res;
+return res;
+}
+void merge(ll x, ll y) {
+ll A = dsufind(x), B = dsufind(y);
+if (rand() % 2) {
+pr[A] = B;
+} else {
+pr[B] = A;
+}
+}
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+ll n, k;
+cin >> n >> k;
+ll ans = bin(2, n);
+while (k--) {
+ll u, v;
+cin >> u >> v;
+u--;
+if (dsufind(u) != dsufind(v)) {
+ans = ans * bin(2, MOD - 2) % MOD;
+merge(u, v);
+}
+cout << ans << endl;
+}
+return 0;
+}

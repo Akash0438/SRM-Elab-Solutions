@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long int
+#define rep(i,b) for (ll i =1; i <= (b); i++)
+#define mod 1000000007
+#define rep(i,b) for (ll i =1; i <= (b); i++)
+#define repp(i,b) for (ll i =0; i < (b); i++)
+#define test int t; cin>>t; while(t--)
+#define fio ios_base::sync_with_stdio(false);
+#define pb push_back
+#define s(n) scanf("%lld",&n)
+typedef vector<ll> vi;
+typedef long long VARIABLE;
+int main()
+{
+test
+{
+ll e;
+cin>>e;
+vector<vector<ll> > v(e);
+set<ll> s;
+repp(i,e){
+ll a,b;
+cin>>a>>b;
+s.insert(a);
+s.insert(b);
+}
+ll c=0;
+cout<<s.size()<<endl;
+}
+return 0;
+}

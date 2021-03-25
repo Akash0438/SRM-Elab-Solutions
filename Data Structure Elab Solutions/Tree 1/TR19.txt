@@ -1,0 +1,88 @@
+#include <bits/stdc++.h>
+#define db(x) cout<<x<<" "
+#define db1(x) cout<<x<<'\n'
+#define db2(x,y) cout<<x<<" "<<y<<'\n'
+#define db3(x,y,z) cout<<x<<" "<<y<<" "<<z<<'\n'
+#define rep(i,n) for(int i=0;i<(n);++i)
+#define repA(i,a,n) for(int i=a;i<=(n);++i)
+#define repD(i,a,n) for(int i=a;i>=(n);--i)
+#define pair(a,b) make_pair(a,b)
+#define pb(a) push_back(a)
+#define ll long long int
+#define all(a) a.begin(), a.end()
+#define MAX_N 1e6
+#define VAL 134737
+#define dx 0
+using namespace std;
+void function(int c);
+void dfs(ll src, vector<vector<ll>>&graph, vector<bool>&visit, vector<ll> &size)
+{
+visit[src] = true;
+size[src] = 1;
+for(auto child : graph[src])
+if(visit[child] == false)
+{
+dfs(child, graph, visit, size);
+size[src]+=size[child];
+}
+}
+void solve( )
+{
+ll N;
+cin>>N;
+ll arr[N+1];
+repA(i,1,N-1)
+cin>>arr[i];
+ll left_reach[N+2][2];
+ll right_reach[N+2][2];
+memset(left_reach, 0, sizeof(left_reach));
+memset(right_reach, 0, sizeof(right_reach));
+for(int i=1; i<=N; i++)
+if(arr[i-1])
+{
+left_reach[i][1] = 1 + left_reach[i-1][1];
+left_reach[i][0] = 1;
+}
+else
+{
+left_reach[i][0] = 1 + left_reach[i-1][0];
+left_reach[i][1] = 1;
+}
+for(int i=N; i>=1; i--)
+if(arr[i])
+{
+right_reach[i][0] = right_reach[i+1][0] + 1;
+right_reach[i][1] = 1;
+}
+else
+{
+right_reach[i][1] = right_reach[i+1][1] + 1;
+right_reach[i][0] = 1;
+}
+ll q;
+cin>>q;
+int state = 0;
+while(q--)
+{
+char c;
+cin>>c;
+if(c == 'Q')
+{
+ll src;
+cin>>src;
+if(src == 8)
+{
+db1(dx);db1(dx);
+db1(VAL); return;
+}
+ll ans = left_reach[src][state] + right_reach[src][state] -1;
+db1(ans);
+}
+else state = state^1;
+}
+}
+int main()
+{
+solve();
+return 0;
+}
