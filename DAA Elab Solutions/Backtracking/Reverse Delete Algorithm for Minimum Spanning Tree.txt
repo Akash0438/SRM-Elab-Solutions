@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    int v,e;
+    cin>>v>>e;
+    int mn[e][2] , w[e];
+    for(int i=0; i<e; i++)
+      cin>>mn[i][0]>>mn[i][1]>>w[i];
+    for(int i=0; i<e-1; i++)
+      for(int j=i+1; j<e; j++)
+        if(w[i] < w[j])
+        {
+          int temp = w[i];
+          w[i] = w[j];
+          w[j] = temp;
+          temp = mn[i][0];
+          mn[i][0] = mn[j][0];
+          mn[j][0] = temp;
+          temp = mn[i][1];
+          mn[i][1] = mn[j][1];
+          mn[j][1] = temp;
+        }
+    //for(int i=0; i<e; i++) cout << mn[i][0] << mn[i][1] << w[i] << endl;
+    int ans = 0;
+    for(int i=0; i<e; i++)
+      ans += w[i];
+    for(int i=0; i<e; i++)
+    {
+      int flag1 = 0, flag2 = 0;
+      for(int j=i+1; j<e; j++)
+      {
+        if ( mn[i][0] == mn[j][0] || mn[i][0] == mn[j][1] )
+          flag1++;
+        if ( mn[i][1] == mn[j][0] || mn[i][1] == mn[j][1] )
+          flag2++;
+      }
+      if ( flag1 && flag2 )
+        ans -= w[i];
+    }
+    cout << ans << endl;
+  }
+  return 0;
+}

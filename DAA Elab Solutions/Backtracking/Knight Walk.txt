@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct node
+{
+    int row_index;
+    int col_index;
+    int dist;
+};
+int isSafe(int m,int n,int r_index,int c_index)
+{
+  if(r_index>=1 && c_index >=1 && r_index <= m && c_index <= n)
+    return 1;
+  else
+    return 0;
+}
+int bfs(int m,int n,int start_row,int start_col,int end_row,int end_col)
+{
+  int visited[m+1000][n+1000],flag=0;
+  for(int i=1;i<=m;i++)
+    for(int j=1;j<=n;j++)
+      visited[i][j] = 0;
+  queue<node>q;
+  struct node val;
+  val.row_index = start_row;
+  val.col_index = start_col;
+  val.dist = 0;
+  visited[start_row][start_col] = 1;
+  int count=0;
+  q.push(val);
+  struct node it;
+  int row[8] = {-2, -1, 1, 2, -2, -1, 1, 2};
+  int col[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
+  while(!q.empty())
+  {
+    val = q.front();
+    q.pop();
+    if(val.row_index == end_row && val.col_index == end_col)
+    {
+      flag=1;
+      break;
+    }
+    for(int i=0;i<8;i++)
+    {
+      if(isSafe(m,n,row[i]+val.row_index,col[i]+val.col_index)&&!visited[row[i]+val.row_index][col[i]+val.col_index])
+      {
+        visited[val.row_index+row[i]][val.col_index+col[i]] = 1;
+        it.row_index = val.row_index + row[i];
+        it.col_index = val.col_index + col[i];
+        it.dist = val.dist + 1;
+        q.push(it);
+      }
+    }
+  }
+  if(flag==1)
+    return val.dist;
+  else
+    return -1;
+}
+int main()
+{
+  int t;
+  cin >> t;
+  while(t--)
+  {
+    int m,n;
+    cin >> m >> n;
+    int start_row,start_col,end_row,end_col;
+    cin >> start_row >> start_col >> end_row >> end_col;
+    cout << bfs(m,n,start_row,start_col,end_row,end_col) << "\n";
+  }
+  return 0;
+}

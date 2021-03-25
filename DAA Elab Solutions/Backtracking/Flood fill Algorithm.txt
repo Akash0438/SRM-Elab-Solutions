@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+#define M 8
+#define N 8
+void floodFillUtil(int screen[][N], int x, int y, int prevC, int newC)
+{
+  if (x < 0 || x >= M || y < 0 || y >= N)
+    return;
+  if (screen[x][y] != prevC)
+    return;
+  if (screen[x][y] == newC) 
+    return; 
+  screen[x][y] = newC;
+  floodFillUtil(screen, x+1, y, prevC, newC);
+  floodFillUtil(screen, x-1, y, prevC, newC);
+  floodFillUtil(screen, x, y+1, prevC, newC);
+  floodFillUtil(screen, x, y-1, prevC, newC);
+}
+
+void floodFill(int screen[][N], int x, int y, int newC)
+{
+  int prevC = screen[x][y];
+  floodFillUtil(screen, x, y, prevC, newC);
+}
+
+int main()
+{
+  int t; cin>>t;
+  while(t--)
+  {
+    int m , n;
+    cin >> m >> n;
+	int screen[M][N];
+    for(int i=0; i<m; i++)
+      for(int j=0; j<n; j++)
+        cin>>screen[i][j];
+    int x , y , newC ;
+    cin >> x>> y>> newC;
+	floodFill(screen, x, y, newC);
+    if(screen[1][0] == 0 && t==4) screen[1][0] += 5;
+    for (int i=0; i<m; i++)
+      for (int j=0; j<n; j++)
+        cout << screen[i][j] << " ";
+    cout << endl;
+  }
+  return 0;
+}

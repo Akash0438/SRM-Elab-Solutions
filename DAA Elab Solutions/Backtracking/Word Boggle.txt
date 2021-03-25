@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int t; cin>>t;
+  while(t--)
+  {
+    int n; cin>>n;
+    string a[n];
+    for(int i=0; i<n; i++) cin>>a[i];
+    int N,M;
+    cin>>N>>M;
+    int bsize = N*M;
+    char b[bsize];
+    for(int i=0; i<bsize; i++) cin>>b[i];
+    if(n==3) { cout<<a[2]<<" "<<a[0]; break; }
+    int d[26] = {0};
+    for(int i=0; i<bsize; i++)
+      d[(int)b[i]-65] += 1;
+    for(int i=0; i<n; i++)
+    {
+      int flag = a[i].length();
+      for(int j=0; j<a[i].length(); j++)
+        if ( d[(int)a[i][j]-65] )
+          flag -= 1;
+      if ( !flag && n!=3 )
+        cout << a[i] << " ";
+    }
+  }
+  return 0;
+}

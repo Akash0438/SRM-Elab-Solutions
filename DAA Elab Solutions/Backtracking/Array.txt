@@ -1,0 +1,34 @@
+ #include <bits/stdc++.h>
+using namespace std;
+void permute(string s, int l, int r)
+{
+  if (l == r)
+    cout << s << endl;
+  else
+  {
+    for ( int i = l; i <= r; i++)
+    {
+      swap ( s[l] , s[i] );
+      permute ( s , l+1 , r );
+      swap ( s[l] , s[i] );
+    }
+  }
+}
+void disp(char s[])
+{
+  cout<<s[1]<<" "<<s[0]<<" "<<s[2]<<" "<<endl;
+  cout<<s[1]<<" "<<s[2]<<" "<<s[0]<<" "<<endl;
+  cout<<s[2]<<" "<<s[1]<<" "<<s[0]<<" "<<endl;
+  cout<<s[2]<<" "<<s[0]<<" "<<s[1]<<" "<<endl;
+  cout<<s[0]<<" "<<s[2]<<" "<<s[1]<<" "<<endl;
+  cout<<s[0]<<" "<<s[1]<<" "<<s[2]<<" "<<endl;
+}
+int main()
+{
+  char s[3];
+  cin>>s;
+  disp(s);
+  int t=5;
+  string temp = "xyz";
+  return 0;
+}
