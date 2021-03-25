@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+template <class T>
+T sum(T x,T y)
+{
+return x+y;
+}
+int main()
+{
+float a,b,c,d;
+cin>>a>>b>>c>>d;
+cout<<sum(a,b)<<endl;
+cout<<sum(c,d)<<endl;
+cout<<sum(a,c);
+return 0;
+}
