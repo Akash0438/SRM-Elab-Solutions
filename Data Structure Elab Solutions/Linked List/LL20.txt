@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int d;
+struct node *next;
+}*head=NULL;
+void get()
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+scanf("%d",&new_node->d);
+new_node->next=head;
+head=new_node;
+}
+void sort(int n)
+{
+int i,j,temp;
+struct node *p,*c;
+for(p=head; p!=NULL; p=p->next)
+for(c=p->next; c!=NULL; c=c->next)
+if(p->d > c->d)
+{
+temp=p->d;
+p->d=c->d;
+c->d=temp;
+}
+}
+void display()
+{
+printf("Marks : ");
+struct node *c=head;
+while(c!=NULL)
+{
+printf("->%d",c->d);
+c=c->next;
+}
+}
+int main()
+{
+int n;
+scanf("%d",&n);
+int N=n;
+while(n--) get();
+sort(N);
+display();
+return 0;
+}

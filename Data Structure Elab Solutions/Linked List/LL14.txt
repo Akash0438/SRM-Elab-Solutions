@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int data;
+struct node *next;
+}*head;
+void create()
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+scanf("%d",&new_node->data);
+new_node->next=NULL;
+if(head==NULL) { head=new_node; return; }
+new_node->next=head; head=new_node;
+}
+void swap()
+{
+int x,y;
+scanf("%d %d",&x,&y);
+struct node *ptr=head,*i,*j;
+printf("Linked list before Swapping : ");
+while(ptr!=NULL) { printf("-->%d",ptr->data); ptr=ptr->next; }
+for(i=head; i!=NULL; i=i->next)
+for(j=head; j!=NULL; j=j->next)
+if(i->data==x && j->data==y)
+{
+i->data=y;
+j->data=x;
+goto f;
+}
+f: ptr=head;
+printf("\nLinked list after Swapping : ");
+while(ptr!=NULL) { printf("-->%d",ptr->data); ptr=ptr->next; }
+}
+int main()
+{
+int n;
+scanf("%d",&n);
+while(n--) create();
+swap();
+return 0;
+}

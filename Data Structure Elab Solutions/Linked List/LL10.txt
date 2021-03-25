@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int data;
+struct node *next;
+}*head=NULL;
+void Create()
+{
+struct node *new_node=(struct node*)malloc(sizeof(struct node));
+struct node *last=head;
+scanf("%d",&new_node->data);
+new_node->next=NULL;
+if(head==NULL)
+{
+head=new_node;
+return;
+}
+while(last->next!=NULL)
+last=last->next;
+last->next=new_node;
+}
+void del(int s)
+{
+struct node *current=head;
+struct node *previous=NULL;
+int lol=0;
+while(current!=NULL)
+{
+if(current->data==s)
+{
+lol++;
+if(current==head)
+head=head->next;
+else
+previous->next=current->next;
+}
+previous=current;
+current=current->next;
+}
+if(lol==0)
+printf("Invalid Node! \n");
+}
+void print()
+{
+struct node *current=head;
+printf("Linked List : ");
+while(current!=NULL)
+{
+printf("->%d",current->data);
+current=current->next;
+}
+}
+int main()
+{
+int n,i,s;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+Create();
+scanf("%d",&s);
+del(s);
+print();
+return 0;
+}

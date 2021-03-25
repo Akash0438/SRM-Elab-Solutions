@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int data;
+struct node *next;
+}*head=NULL;
+void create()
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+scanf("%d",&new_node->data);
+new_node->next=head;
+head=new_node;
+}
+void print()
+{
+struct node *current=head;
+printf("Linked list : ");
+while(current!=NULL)
+{
+printf("-->%d",current->data);
+current=current->next;
+}
+}
+void find(int mid)
+{
+struct node *current=head;
+while(current!=NULL)
+{
+mid--;
+if(mid==0)
+printf("\nThe middle element is [%d]",current->data);
+current=current->next;
+}
+}
+int main()
+{
+int n,mid;
+scanf("%d",&n);
+mid=n/2+1;
+while(n--)
+create();
+print();
+find(mid);
+return 0;
+}

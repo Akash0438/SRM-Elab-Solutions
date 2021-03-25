@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+int data;
+struct node *next;
+}*start=NULL;
+void create()
+{
+struct node *current=start;
+struct node *new_node=(struct node *)malloc(sizeof(struct node *));
+scanf("%d",&new_node->data);
+new_node->next=NULL;
+if(start==NULL)
+{
+start=new_node;
+return;
+}
+while(current->next!=NULL)
+current=current->next;
+current->next=new_node;
+}
+void swap(int &a, int &b);
+void swaps()
+{
+struct node *current=start;
+struct node *now=current->next;
+int temp;
+while(now!=NULL)
+{
+temp=current->data;
+current->data=now->data;
+now->data=temp;
+current=now->next;
+if(current==NULL)
+break;
+now=current->next;
+}
+current=start;
+printf("List : ");
+while(current!=NULL)
+{
+printf("->%d",current->data);
+current=current->next;
+}
+}
+int main()
+{
+int n;
+scanf("%d",&n);
+while(n--)
+create();
+swaps();
+return 0;
+}

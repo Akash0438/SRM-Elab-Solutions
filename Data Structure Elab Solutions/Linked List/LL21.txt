@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct node
+{
+char data;
+struct node *next;
+}*head=NULL,*headrev=NULL;
+void link(char s)
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+struct node *current=head;
+new_node->data=s;
+new_node->next=NULL;
+if(head==NULL)
+{
+head=new_node;
+return;
+}
+while(current->next!=NULL)
+current=current->next;
+current->next=new_node;
+}
+void linkrev(char s)
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+new_node->data=s;
+new_node->next=headrev;
+headrev=new_node;
+}
+void print()
+{
+struct node *current=head;
+while(current!=NULL)
+{
+printf("%c ",current->data);
+current=current->next;
+}
+}
+void check()
+{
+struct node *current=head;
+struct node *currentrev=headrev;
+while(current!=NULL)
+{
+if(current->data!=currentrev->data)
+{
+printf("\nNot Palindrome");
+break;
+}
+current=current->next;
+currentrev=currentrev->next;
+}
+if(current==NULL)
+printf("\nIs Palindrome");
+}
+int main()
+{
+char s[10];
+int i;
+scanf("%s",s);
+for(i=0; i<strlen(s); i++)
+{
+link(s[i]);
+linkrev(s[i]);
+}
+print();
+check();
+return 0;
+}

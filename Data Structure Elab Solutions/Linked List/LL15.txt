@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int data;
+struct node *next;
+}*head;
+void push()
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+scanf("%d",&new_node->data);
+new_node->next=NULL;
+if(head==NULL)
+{
+head=new_node;
+return;
+}
+new_node->next=head;
+head=new_node;
+}
+void disp(int n)
+{
+struct node *ptr=head;
+printf("\nLinked list : ");
+while(ptr!=NULL)
+{
+printf("-->%d",ptr->data);
+ptr=ptr->next;
+}
+int x,i=0;
+scanf("%d",&x);
+if(x>=n || x==0)
+printf("\nInvalid Index!");
+ptr=head;
+while(ptr!=NULL)
+{
+i++;
+if(i==x)
+printf("\nNode at index=%d : %d",x,ptr->data);
+ptr=ptr->next;
+}
+}
+int main()
+{
+int n;
+scanf("%d",&n);
+int N=n;
+while(n--) push();
+disp(N);
+return 0;
+}

@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+void get();
+void display();
+void search();
+int main()
+{
+int n,s;
+scanf("%d",&n);
+while(n--) get();
+display();
+scanf("%d",&s);
+search(s);
+return 0;
+}
+struct node
+{
+int d;
+struct node *next;
+}*h=NULL;
+void get()
+{
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+struct node *c=h;
+scanf("%d",&new_node->d);
+new_node->next=NULL;
+if(h==NULL)
+{
+h=new_node;
+return;
+}
+while(c->next!=NULL)
+c=c->next;
+c->next=new_node;
+}
+void display()
+{
+struct node *c=h;
+printf("Linked list : ");
+while(c!=NULL)
+{
+printf("-->%d",c->d);
+c=c->next;
+}
+}
+void search(int s)
+{
+struct node *c=h;
+int count=0;
+while(c!=NULL)
+{
+if(c->d==s) count++;
+c=c->next;
+}
+printf("\nCount of %d : %d",s,count);
+}

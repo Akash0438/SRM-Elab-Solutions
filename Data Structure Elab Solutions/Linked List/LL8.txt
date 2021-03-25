@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+void create();
+void display();
+int main()
+{
+int n;
+scanf("%d",&n);
+while(n--)
+create();
+int s;
+scanf("%d",&s);
+display(s);
+return 0;
+}
+struct node
+{
+int data;
+struct node *next;
+}*start=NULL;
+void create()
+{
+struct node *current=start;
+struct node *new_node=(struct node *)malloc(sizeof(struct node *));
+scanf("%d",&new_node->data);
+new_node->next=NULL;
+if(start==NULL)
+{
+start=new_node;
+return;
+}
+while(current->next!=NULL)
+current=current->next;
+current->next=new_node;
+}
+void display(int s)
+{
+struct node *current=start;
+while(current!=NULL)
+{
+if(current->data==s)
+break;
+current=current->next;
+}
+if(current==NULL)
+{
+current=start;
+printf("Invalid Node! \n");
+}
+printf("Linked List : ");
+while(current!=NULL)
+{
+printf("->%d",current->data);
+current=current->next;
+}
+}

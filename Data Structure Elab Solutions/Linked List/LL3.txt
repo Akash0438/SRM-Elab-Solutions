@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node123
+{
+int d;
+struct node123 *n;
+}*h=NULL;
+void Create()
+{
+struct node123 *x;
+x=(struct node123*)malloc(sizeof(struct node123));
+struct node123 *c=h;
+scanf("%d",&x->d);
+x->n=NULL;
+if(h==NULL)
+{
+h=x;
+return;
+}
+while(c->n!=NULL)
+c=c->n;
+c->n=x;
+}
+void display(int i,int s)
+{
+struct node123 *c=h;
+while(c->n!=NULL)
+{
+if(c->d==i)
+{
+struct node123 *ne;
+ne=(struct node123*)malloc(sizeof(struct node123));
+ne->d=s;
+ne->n=c->n;
+c->n=ne; i=0;
+}
+c=c->n;
+}
+if(c->d==i)
+{
+struct node123*ne=(struct node123*)malloc(sizeof(struct node123));
+ne->d=s;
+ne->n=NULL;
+c->n=ne;
+i=0;
+}
+if(i)
+printf("Node not found! \n");
+c=h;
+printf("Linked List : ");
+while(c!=NULL)
+{
+printf("->%d",c->d);
+c=c->n;
+}
+}
+int main()
+{
+int N,i,s;
+scanf("%d",&N);
+while(N--) Create();
+scanf("%d %d",&i,&s);
+display(i,s);
+return 0;
+}

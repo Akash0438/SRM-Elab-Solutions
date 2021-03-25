@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+void create();
+void create2();
+void display();
+int main()
+{
+int n,i,a[10];
+scanf("%d",&n);
+for(i=0; i<n; i++)
+{
+scanf("%d",&a[i]);
+create(a[i]);
+}
+for(i=n-1; i>=0; i--) create2(a[i]);
+display();
+return 0;
+}
+struct node
+{
+int data;
+struct node *next;
+}*start,*rev;
+void create(int x)
+{
+struct node *current=start;
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+new_node->data=x;
+new_node->next=NULL;
+if(start==NULL)
+{
+start=new_node;
+return;
+}
+while(current->next!=NULL)
+current=current->next;
+current->next=new_node;
+}
+void create2(int x)
+{
+struct node *current=rev;
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+new_node->data=x;
+new_node->next=NULL;
+if(rev==NULL)
+{
+rev=new_node;
+return;
+}
+while(current->next!=NULL) current=current->next;
+current->next=new_node;
+}
+void display()
+{
+struct node *current=start;
+printf("Linked list :");
+while(current!=NULL)
+{
+printf(" %d",current->data);
+current=current->next;
+}
+printf("\nReversed Linked list :");
+current=rev;
+while(current!=NULL)
+{
+printf(" %d",current->data);
+current=current->next;
+}
+}
