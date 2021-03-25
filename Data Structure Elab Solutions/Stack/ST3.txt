@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct MYStack
+{
+int top;
+int* array;
+};
+struct MYStack *createMyStack()
+{
+struct MYStack *stack=(struct MYStack*)malloc(sizeof(struct MYStack));
+stack->top=-1;
+stack->array=(int*)malloc(20*sizeof(int));
+return stack;
+}
+void push(struct MYStack* stack,int item)
+{
+stack->array[++stack->top]=item;
+}
+int pop(struct MYStack* stack)
+{
+return stack->array[stack->top--];
+}
+int findMiddle(struct MYStack* stack)
+{
+return stack->array[stack->top/2];
+}
+int main()
+{
+struct MYStack *stack = createMyStack();
+int n;
+scanf("%d",&n);
+while(n--)
+{
+int lol; scanf("%d",&lol); push(stack,lol);
+}
+printf("Item popped is %d\n",pop(stack));
+printf("Item popped is %d\n",pop(stack));
+printf("Middle Element is %d\n",findMiddle(stack));
+return 0;
+}

@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+void push(int &top,int n);
+void lol();
+int main()
+{
+lol();
+return 0;
+}
+void lol()
+{
+int queue[10],front=-1,rear=-1;
+char yes;
+cin>>queue[++rear]; front++;
+Choice:
+if(yes=='n') return;
+int C; cin>>C;
+switch(C)
+{
+case 1 :
+cin>>queue[++rear];
+cin>>yes;
+goto Choice;
+case 2 :
+cout<<"deleted element is\n";
+while(rear>front)
+cout<<queue[rear--]<<" ";
+cin>>yes;
+goto Choice;
+default: return;
+}
+}

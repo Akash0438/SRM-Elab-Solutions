@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct stack
+{
+int top;
+unsigned capacity;
+int* array;
+};
+struct stack* create(unsigned capacity)
+{
+struct stack* s=(struct stack*)malloc(sizeof(struct stack));
+s->top=-1;
+s->capacity=capacity;
+s->array=(int*)malloc(s->capacity*sizeof(int));
+return s;
+}
+void push(struct stack **s, int x)
+{
+struct stack *st=*s;
+st->array[++st->top]=x;
+}
+int pop(struct stack *s)
+{
+return s->array[s->top--];
+}
+void sort(struct stack *s,int n)
+{
+int i,j,temp;
+for(i=0; i<n; i++)
+for(j=i+1; j<n; j++)
+if(s->array[i]<s->array[j])
+{
+temp=s->array[i];
+s->array[i]=s->array[j];
+s->array[j]=temp;
+}
+}
+int main()
+{
+struct stack *s=create(10);
+int n,i,a;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+{
+scanf("%d",&a);
+push(&s,a);
+}
+printf("Stack elements before sorting:\n");
+for(i=0; i<n; i++)
+printf("%d ",pop(s));
+sort(s,n);
+printf("\nStack elements after sorting:\n");
+for(i=0; i<n; i++)
+printf("%d ",s->array[++s->top]);
+return 0;
+}

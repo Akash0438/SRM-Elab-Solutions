@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node
+{
+int top;
+unsigned capacity;
+char* array;
+};
+struct Node* create(unsigned capacity)
+{
+struct Node* stack;
+stack=(struct Node*)malloc(sizeof(struct Node));
+stack->top=-1;
+stack->capacity=capacity;
+stack->array=(char*)malloc(stack->capacity*sizeof(char));
+return stack;
+}
+void push(struct Node* stack, char data)
+{
+stack->array[++stack->top]=data;
+}
+void pop(struct Node* stack)
+{
+char d;
+d=stack->array[stack->top--];
+}
+int main()
+{
+struct Node* stack=create(20);
+int n,i;
+char a,d;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+{
+scanf("%c",&a);
+if(a=='(')
+push(stack,a);
+else if(a==')')
+pop(stack);
+}
+if(stack->top==0)
+printf("String is balanced!");
+else
+printf("String is unbalanced!");
+return 0;
+}

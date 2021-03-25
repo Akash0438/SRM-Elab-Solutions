@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct sNode
+{
+int top;
+int* array;
+};
+struct sNode* create()
+{
+struct sNode *stack=(struct sNode*)malloc(sizeof(struct sNode));
+stack->top=-1;
+stack->array=(int*)malloc(10*sizeof(int));
+return stack;
+}
+struct sNode* push(struct sNode *s)
+{
+int x;
+scanf("%d",&x);
+s->array[++s->top]=x;
+return s;
+}
+void Display(struct sNode* top);
+int main()
+{
+struct sNode *stack=create();
+int n;
+scanf("%d",&n);
+while(n--) push(stack);
+Display(stack);
+return 0;
+}
+void Display(struct sNode* top)
+{
+int i;
+printf("Original Stack \n");
+for(i=top->top; i>-1; i--)
+printf("%d ",top->array[i]);
+printf("\nReversed Stack \n");
+for(i=0; i<=top->top; i++)
+printf("%d ",top->array[i]);
+}

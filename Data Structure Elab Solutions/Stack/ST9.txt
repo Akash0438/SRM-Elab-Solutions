@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct STACK
+{
+int top;
+unsigned capacity;
+char* array;
+};
+struct STACK* create(unsigned capacity)
+{
+struct STACK* stack=(struct STACK*)malloc(sizeof(struct STACK));
+stack->top=-1;
+stack->capacity=capacity;
+stack->array=(char*)malloc(stack->capacity*sizeof(char));
+return stack;
+}
+void push(struct STACK *stack,char item)
+{
+stack->array[++stack->top]=item;
+}
+char pop(struct STACK *stack)
+{
+return stack->array[stack->top--];
+}
+int precedence(char x)
+{
+if(x=='^') return 3;
+else if(x=='*' || x=='/') return 2;
+else if(x=='+' || x=='-') return 1;
+else return 0;
+}
+void infixToPostfix(char s[])
+{
+struct STACK* stack=create(30);
+struct STACK* output=create(30);
+int i; char dummy;
+for(i=0; i<strlen(s); i++)
+{
+if((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z'))
+push(output,s[i]);
+else if(s[i]=='(')
+push(stack,s[i]);
+else if(s[i]==')')
+{
+while(stack->array[stack->top]!='(' && stack->top!=-1)
+push(output,pop(stack));
+if(stack->array[stack->top]=='(')
+dummy=pop(stack);
+}
+else
+{
+while(precedence(s[i])<=precedence(stack->array[stack->top]) &&
+stack->array[stack->top]!='(')
+push(output,pop(stack));
+push(stack,s[i]);
+}
+}
+while(stack->top!=-1)
+push(output,pop(stack));
+for(i=0; i<=output->top; i++)
+printf("%c",output->array[i]);
+}
+int main()
+{
+char exp[30];
+scanf("%s",exp);
+infixToPostfix(exp);
+return 0;
+}

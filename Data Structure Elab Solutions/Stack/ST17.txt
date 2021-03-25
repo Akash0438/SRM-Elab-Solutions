@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node1
+{
+int top;
+int* array;
+}*stack;
+void create()
+{
+stack=(struct Node1*)malloc(sizeof(struct Node1));
+stack->top=-1;
+stack->array=(int*)malloc(20*sizeof(int));
+}
+void push(int x)
+{
+stack->array[++stack->top]=x;
+}
+void disp()
+{
+int i;
+printf("The sequence of contents in stack\n");
+for(i=stack->top; i>-1; i--)
+printf("%d ",stack->array[i]);
+printf("\nThe contents in stack after reversal\n");
+for(i=0; i<=stack->top; i++)
+printf("%d ",stack->array[i]);
+}
+int main()
+{
+int n,x;
+scanf("%d",&n);
+create();
+while(n--)
+{
+scanf("%d",&x);
+push(x);
+}
+disp();
+return 0;
+}

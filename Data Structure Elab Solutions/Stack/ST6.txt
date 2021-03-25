@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct node
+{
+int top;
+char* array;
+}*stack;
+void create()
+{
+stack=(struct node*)malloc(sizeof(struct node));
+stack->top=-1;
+stack->array=(char*)malloc(20*sizeof(char));
+}
+void push(char);
+void push(char x)
+{
+stack->array[++stack->top]=x;
+}
+char pop();
+void disp()
+{
+int i,c=-1;
+for(i=stack->top; i>-1; i--)
+printf("%c",stack->array[i]);
+for(i=0; i<=stack->top; i++)
+if(stack->array[i]==stack->array[stack->top-i])
+c++;
+if(c==stack->top)
+printf(" is a Palindrome string");
+else
+printf(" is not a palindrome string");
+}
+int main()
+{
+char x[20];
+create();
+scanf("%s",x);
+int i=strlen(x);
+while(i--)
+push(x[i]);
+disp();
+return 0;
+}

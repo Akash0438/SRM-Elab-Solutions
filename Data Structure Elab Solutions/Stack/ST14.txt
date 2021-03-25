@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+void DELETE();
+void func();
+int main()
+{
+func();
+return 0;
+}
+void func()
+{
+int queue[10],front=0,rear=0; char yes;
+cin>>queue[front];
+front++;
+Choice:
+if(yes=='n')
+return;
+int C;
+cin>>C;
+switch(C)
+{
+case 1 :
+cin>>queue[front];
+front++;
+cin>>yes;
+goto Choice;
+case 2 :
+cout<<"deleted element is "<<queue[--front]<<endl;
+cin>>yes;
+goto Choice;
+case 3:
+cout<<"status of the stack is"<<endl;
+for(int i=front-1; i>=rear; i--)
+cout<<queue[i]<<"->"; cout<<"!"<<endl;
+cin>>yes;
+goto Choice;
+default:
+return;
+}
+}

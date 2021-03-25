@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct Stack
+{
+int top;
+char* array;
+}*stack;
+void create()
+{
+stack=(struct Stack*)malloc(sizeof(struct Stack));
+stack->top=-1;
+stack->array=(char*)malloc(20*sizeof(char));
+}
+void push(char x)
+{
+stack->array[++stack->top]=x;
+}
+void disp()
+{
+printf("Reversed string is ");
+while(stack->top!=-1)
+{
+printf("%c",stack->array[stack->top--]);
+}
+}
+int main()
+{
+char a[20];
+scanf("%s",a);
+int i;
+create();
+for(i=0; i<strlen(a); i++)
+push(a[i]);
+disp();
+return 0;
+}

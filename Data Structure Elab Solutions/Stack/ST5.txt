@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct stack
+{
+int top;
+int capacity;
+int* array; }*q;
+struct stack* Queue_allocate(int max)
+{
+q=(struct stack*)malloc(sizeof(struct stack));
+q->top=-1;
+q->capacity=max;
+q->array=(int*)malloc(max*sizeof(int));
+return q;
+}
+void push(int x)
+{
+q->array[++q->top]=x;
+int i;
+printf("Current Queue:\n");
+for(i=0; i<=q->top; i++)
+printf("[%d], ",q->array[i]);
+printf("Pushed Value: %d\n",x);
+}
+void pop()
+{
+int x=q->array[q->top--];
+int i;
+printf("Current Queue:\n");
+for(i=0; i<=q->top; i++)
+printf("[%d], ",q->array[i]);
+printf("Popped Value: %d\n",x);
+}
+int main()
+{
+int MAX=10,flag=1,choice,x;
+q = Queue_allocate(MAX);
+while(flag)
+{
+scanf("%d",&choice);
+switch(choice)
+{
+case 1 : scanf("%d",&x); push(x); break;
+case 2 : pop(); break;
+case 0 : printf("Qutting."); flag=0; break;
+}
+}
+return 0;
+}

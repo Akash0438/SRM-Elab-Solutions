@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+struct node1
+{
+int top;
+unsigned capacity;
+int* array;
+};
+struct node2
+{
+int top;
+unsigned capacity;
+int* array;
+};
+struct node3
+{
+int top;
+unsigned capacity;
+int* array;
+};
+struct node1* create1(unsigned capacity)
+{
+struct node1* stack=(struct node1*)malloc(sizeof(struct node1));
+stack->capacity=capacity;
+stack->top=-1;
+stack->array=(int*)malloc(stack->capacity*sizeof(int));
+return stack;
+}
+struct node2* create2(unsigned capacity)
+{
+struct node2* stack=(struct node2*)malloc(sizeof(struct node2));
+stack->capacity=capacity;
+stack->top=-1;
+stack->array=(int*)malloc(stack->capacity*sizeof(int));
+return stack;
+}
+struct node3* create3(unsigned capacity)
+{
+struct node3* stack=(struct node3*)malloc(sizeof(struct node3));
+stack->capacity=capacity;
+stack->top=-1;
+stack->array=(int*)malloc(stack->capacity*sizeof(int));
+return stack;
+}
+void push1(struct node1* stack1,int item)
+{
+stack1->array[++stack1->top]=item;
+}
+void push2(struct node2* stack2,int item)
+{
+stack2->array[++stack2->top]=item;
+}
+void push3(struct node3* stack3,int item)
+{
+stack3->array[++stack3->top]=item;
+}
+int pop1(struct node1* stack1)
+{
+return stack1->array[stack1->top--];
+}
+int pop2(struct node2* stack2)
+{
+return stack2->array[stack2->top--];
+}
+int pop3(struct node3* stack3)
+{
+return stack3->array[stack3->top--];
+}
+void display(struct node1* s1,struct node2* s2,struct node3* s3)
+{
+int top1,top2,top3;
+top1=s1->top+1;
+top2=s2->top+1;
+top3=s3->top+1;
+printf("Tower1-> ");
+while(top1--) printf("%d ",s1->array[top1]);
+printf("\nTower2-> ");
+while(top2--) printf("%d ",s2->array[top2]);
+printf("\nTower3-> ");
+while(top3--) printf("%d ",s3->array[top3]);
+printf("\n\n\n");
+}
+int main()
+{
+int n,i ;
+scanf("%d",&n);
+struct node1* tower1=create1(n);
+struct node2* tower2=create2(n);
+struct node3* tower3=create3(n);
+for(i=n; i>0; i--) push1(tower1,i);
+display(tower1,tower2,tower3);
+int s = pow(2,n)-1;
+for(i=1; i<=s; i++)
+{
+if(i%3==1)
+{
+if(tower1->top==-1)
+push1(tower1,pop3(tower3));
+else if(tower3->top==-1)
+push3(tower3,pop1(tower1));
+else if(tower3->array[tower3->top] > tower1->array[tower1->top])
+push3(tower3,pop1(tower1));
+else if(tower1->array[tower1->top] > tower3->array[tower3->top])
+push1(tower1,pop3(tower3));
+}
+else if(i%3==2)
+{
+if(tower1->top==-1)
+push1(tower1,pop2(tower2));
+else if(tower2->top==-1)
+push2(tower2,pop1(tower1));
+else if(tower2->array[tower2->top] > tower1->array[tower1->top])
+push2(tower2,pop1(tower1));
+else if(tower1->array[tower1->top] > tower2->array[tower2->top])
+push1(tower1,pop2(tower2));
+}
+else if(i%3==0)
+{
+if(tower2->top==-1)
+push2(tower2,pop3(tower3));
+else if(tower3->top==-1)
+push3(tower3,pop2(tower2));
+else if(tower3->array[tower3->top] > tower2->array[tower2->top])
+push3(tower3,pop2(tower2));
+else if(tower2->array[tower2->top] > tower3->array[tower3->top])
+push2(tower2,pop3(tower3));
+}
+display(tower1,tower2,tower3);
+}
+return 0;
+}

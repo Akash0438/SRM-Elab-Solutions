@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int top;
+int* array;
+}*stack;
+void create()
+{
+stack=(struct node*)malloc(sizeof(struct node));
+stack->top=-1;
+stack->array=(int*)malloc(10*sizeof(int));
+}
+void push1(int x) { stack->array[++stack->top]=x; }
+int pop1() { return stack->array[stack->top--]; }
+void push2(int x) { stack->array[++stack->top]=x; }
+int pop2() { return stack->array[stack->top--]; }
+int main()
+{
+int n,x;
+scanf("%d",&n);
+int N=n;
+create();
+while(N--)
+{
+scanf("%d",&x);
+push1(x);
+}
+printf("Popped element from stack1 is %d",pop1());
+create();
+while(n--)
+{
+scanf("%d",&x);
+push2(x);
+}
+printf("\nPopped element from stack2 is %d",pop2());
+return 0;
+}

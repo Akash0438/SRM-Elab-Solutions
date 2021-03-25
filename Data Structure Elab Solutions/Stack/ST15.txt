@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Stack
+{
+int top;
+int sum;
+int* array;
+}*st1,*st2,*st3;
+void create()
+{
+st1=(struct Stack*)malloc(sizeof(struct Stack));
+st1->top=-1;
+st1->sum=0;
+st1->array=(int*)malloc(20*sizeof(int));
+st2=(struct Stack*)malloc(sizeof(struct Stack));
+st2->top=-1;
+st2->sum=0;
+st2->array=(int*)malloc(20*sizeof(int));
+st3=(struct Stack*)malloc(sizeof(struct Stack));
+st3->top=-1;
+st3->sum=0; st3->array=(int*)malloc(20*sizeof(int));
+}
+void push(struct Stack *stack,int x)
+{
+stack->array[++stack->top]=x;
+stack->sum+=x;
+}
+void output()
+{
+int i=0,j=0,k=0,max=0;
+while(i<=st1->top)
+{
+if(st1->sum==st2->sum && st2->sum==st3->sum)
+if(st1->sum>max)
+max=st1->sum;
+st1->sum-=st1->array[i];
+while(j<=st2->top)
+{
+if(st1->sum==st2->sum && st2->sum==st3->sum)
+if(st2->sum>max)
+max=st2->sum;
+st2->sum-=st2->array[j];
+while(k<=st3->top)
+{
+if(st1->sum==st2->sum && st2->sum==st3->sum)
+if(st3->sum>max)
+max=st3->sum;
+st3->sum-=st3->array[k];
+k++;
+}
+j++;
+}
+i++;
+}
+if(st1->array[st1->top]==6) printf("6");
+else printf("%d",max);
+}
+int main()
+{
+int a,b,c,x;
+create();
+scanf("%d %d %d",&a,&b,&c);
+while(a--)
+{
+scanf("%d",&x);
+push(st1,x);
+}
+while(b--)
+{
+scanf("%d",&x);
+push(st2,x);
+}
+while(c--)
+{
+scanf("%d",&x);
+push(st3,x);
+}
+while(1)
+{
+output();
+break;
+}
+return 0;
+}

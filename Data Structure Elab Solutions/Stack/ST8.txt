@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct Stack
+{
+int top;
+unsigned capacity;
+int* array;
+}*stack;
+struct Stack* MakeStack(unsigned capacity)
+{
+stack=(struct Stack*)malloc(sizeof(struct Stack));
+stack->top=-1;
+stack->capacity=capacity;
+stack->array=(int*)malloc(capacity*sizeof(int));
+return stack;
+}
+void push(int x)
+{
+stack->array[++stack->top]=x;
+}
+int pop()
+{
+return stack->array[stack->top--];
+}
+int evaluate(char x,int a,int b)
+{
+if(x=='*') return a*b;
+if(x=='/') return a/b;
+if(x=='+') return a+b;
+if(x=='-') return a-b;
+}
+int main()
+{
+int i;
+char x[20];
+scanf("%s",x);
+stack=MakeStack(20);
+for(i=0; i<strlen(x); i++)
+{
+if(x[i]>='0' && x[i]<='9') push(x[i]-48);
+else push(evaluate(x[i],pop(),pop()));
+}
+printf("Value of %s is %d",x,pop());
+return 0;
+}
