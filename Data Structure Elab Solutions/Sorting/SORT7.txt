@@ -1,0 +1,39 @@
+#include <stdio.h>
+void result(int a[],int b[],int n)
+{
+int i,j,temp,sum=0;
+for(i=0; i<n; i++)
+for(j=i+1; j<n; j++)
+{
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+if(b[i]<b[j])
+{
+temp=b[i];
+b[i]=b[j];
+b[j]=temp;
+}
+}
+for(i=0; i<n; i++)
+sum+=a[i]*b[i];
+printf("%d\n",sum);
+}
+int main()
+{
+int t,n,a[10],b[10],i;
+scanf("%d",&t);
+while(t--)
+{
+scanf("%d",&n);
+for(i=0; i<n; i++)
+scanf("%d",&a[i]);
+for(i=0; i<n; i++)
+scanf("%d",&b[i]);
+result(a,b,n);
+}
+return 0;
+}

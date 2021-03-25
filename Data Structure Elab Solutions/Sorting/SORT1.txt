@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main()
+{
+int n,q,a[10],i;
+scanf("%d%d",&n,&q);
+for(i=0; i<n; i++)
+scanf("%d",&a[i]);
+while(q--)
+{
+int b;
+scanf("%d",&b);
+for(i=0; i<n; i++)
+if(b==a[i])
+{
+printf("YES\n");
+break;
+}
+if(i==n)
+printf("NO\n");
+}
+return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main()
+{
+int t;
+scanf("%d",&t);
+while(t--)
+{
+int n,a[10],x,y,i,j,temp;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+scanf("%d",&a[i]);
+scanf("%d%d",&x,&y);
+for(i=0; i<n; i++)
+for(j=i+1; j<n; j++)
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+int sum=0;
+for(i=x; i<y-1; i++)
+sum+=a[i];
+printf("%d\n",sum);
+}
+return 0;
+}

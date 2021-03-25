@@ -1,0 +1,34 @@
+#include <stdio.h>
+void InSort(int arr[], int n)
+{
+int i,j,l,index;
+for(i=0; i<n-1; i++)
+{
+l=arr[i];
+index=i;
+for(j=i+1; j<n; j++)
+if(arr[j]<l)
+{
+l=arr[j];
+index=j;
+}
+for(j=index; j>i; j--)
+arr[j]=arr[j-1];
+arr[i]=l;
+if(i==1)
+for(j=0; j<n; j++)
+printf("%d ",arr[j]);
+}
+printf("\nSorted Array:");
+for(j=0; j<n; j++)
+printf("%d ",arr[j]);
+}
+int main()
+{
+int n,a[10],i;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+scanf("%d",&a[i]);
+InSort(a,n);
+return 0;
+}

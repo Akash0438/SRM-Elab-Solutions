@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+int t;
+int n;
+int a[20],i,j;
+scanf("%d",&t);
+while(t--)
+{
+int temp,count=0;
+scanf("%d",&n);
+for(i=0; i<n; i++)
+scanf("%d",&a[i]);
+for(i=0; i<n; i++)
+for(j=i+1; j<n; j++)
+if(a[i]>a[j])
+{
+temp=a[i];
+a[i]=a[j];
+a[j]=temp;
+}
+for(i=1; i<n; i++)
+{
+if(a[i]-a[i-1]==1)
+count++;
+if(a[i]-a[i-2]==2)
+count--;
+}
+printf("%d\n",count);
+}
+return 0;
+}
