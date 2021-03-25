@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int sign(int x,int y)
+{
+return(x^y)<0;
+}
+int main()
+{
+  int x,y;
+  cin>>x>>y;
+  if(sign(x,y)==1)
+    cout<<"Signs are opposite";
+  else cout<<"Signs are not opposite";
+	return 0;
+}

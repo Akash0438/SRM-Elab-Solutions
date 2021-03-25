@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main()
+{
+  int n;
+  scanf("%d",&n);
+  int i , ans = 0 , temp;
+  for (i = 1; i <= n; i++)
+  {
+    temp = i;
+    while (temp)
+    {
+      if ( temp % 2 )
+        ans += 1;
+      temp /= 2;
+    }
+  }
+  printf ( "Total set bit count is %d" , ans );
+  return 0;
+}
