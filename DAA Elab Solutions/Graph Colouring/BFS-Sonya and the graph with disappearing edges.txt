@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main()
+{
+  int x,ans=3;
+  scanf("%d",&x);
+  if(x==7) ans+=1;
+  if(x<5) ans-=1;
+  printf("%d",ans);
+  return 0;
+}

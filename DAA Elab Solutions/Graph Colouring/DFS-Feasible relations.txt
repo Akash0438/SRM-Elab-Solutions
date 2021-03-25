@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define sf(a) scanf("%d",&a);
+#define sfc(a) scanf("%c",&a);
+#define pf(a) printf("%d\n",a);
+ 
+vector<int > v[1000001];
+vector<pair<int ,int > > c;
+bool visited1[1000001];
+int cnt,value[1000001];
+ 
+void dfs1(int x){
+    visited1[x]=true;
+    value[x]=cnt;
+    for(int i=0;i<v[x].size();i++){
+        if(visited1[v[x][i]]==false)
+            dfs1(v[x][i]);
+    }
+    return;
+}
+ 
+ 
+int main()
+{
+    int t;
+    sf(t)
+    while(t--){
+        int n,k;
+        sf(n)
+        sf(k)
+        int i,source1,j;
+        
+        for(i=0;i<k;i++){
+            int x1,x2;
+            string s;
+            sf(x1);
+            cin>>s;
+            sf(x2);
+            //cout<<x1<<s<<x2<<"\n";
+            if(s=="="){
+                source1=x1;
+                v[x1].push_back(x2);
+                v[x2].push_back(x1);
+            }
+            else{
+                c.push_back(make_pair(x1,x2));
+            }
+        }
+        cnt=1;
+        for(i=1;i<=n;i++){
+            if(!visited1[i])
+                dfs1(i);
+            cnt++;
+        }
+        
+        
+        cnt=0;
+        
+        for(i=0;i<c.size();i++){
+            if(value[c[i].first]==value[c[i].second]){
+                cnt=1;
+                break;
+            }
+        }
+        if(cnt==0)
+            printf("YES");
+        else
+            printf("NO");
+        printf("\n");
+        
+        c.clear();
+        for(i=1;i<=n;i++){
+            visited1[i]=false;
+            v[i].clear();
+        }
+        
+    }
+    
+    return 0;
+}

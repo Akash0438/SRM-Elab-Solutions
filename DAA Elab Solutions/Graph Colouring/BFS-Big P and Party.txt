@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> adj[1001];
+int visited[1001];
+int d[1001];
+queue<int> q;
+void bfs(int x)
+{
+  visited[x]=1;
+  q.push(x);
+  while(!(q.empty()))
+  {
+    int y = q.front();
+    q.pop();
+    for(int child:adj[y])
+      if(visited[child]==0)
+      {
+        visited[child]=1;
+        d[child]=d[y]+1;
+        q.push(child);
+      }
+  }
+}
+int main()
+{
+  int n,m;
+  cin>>n>>m;
+  for(int i=0;i<m;i++)
+  {
+    int a,b;
+    cin>>a>>b;
+    adj[a].push_back(b);
+    if(b!=a)
+      adj[b].push_back(a);
+  }
+  bfs(0);
+  for(int i=1;i<n;i++)
+  {
+    if(visited[i]==1)
+      cout<<d[i]<<endl;
+    if(visited[i]==0)
+      cout<<"-1\n";
+  }
+  return 0;
+}

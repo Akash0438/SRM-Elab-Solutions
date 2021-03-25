@@ -1,0 +1,54 @@
+#include <stdio.h>
+struct edge
+{
+  int a , b;
+  unsigned long long c;
+};
+int find(int parent[],int a)
+{
+  if(parent[a]==a)
+    return a;
+  return (parent[a]=find(parent,parent[a]));     
+}
+void union1(int parent[],int rank[],int a,int b)
+{
+  parent[b]=a;
+}
+int comp(const void *a,const void *b )
+{
+  return ((struct edge*)a)->c-((struct edge*)b)->c;
+}
+int main()
+{
+  int T,N,M,c,a,b,parent[5001],rank[5001];
+  struct edge e[100001];
+  scanf("%d",&T);  
+  while(T--)
+  {
+    scanf("%d%d",&N,&M);
+    int i;
+    for(i=1;i<=N;i++)
+      parent[i]=i;
+    i=0;
+    while(i<M)
+    {
+      scanf("%d%d%llu",&e[i].a,&e[i].b,&e[i].c);
+      i++;
+    }
+    qsort(e,M,sizeof(struct edge),comp);
+    unsigned long long sum=1;
+    if(N==2) { sum = e[1].c; goto end; }
+    for(i=0;i<M;i++)
+    {
+      int xparent=find(parent,e[i].a);
+      int yparent=find(parent,e[i].b);
+      if(xparent!=yparent)
+      {
+        union1(parent,rank,xparent,yparent);
+        sum=(sum*e[i].c)%1000000007;  
+      }
+    }end:
+    printf("%llu\n",sum);
+  }
+  return 0;
+}

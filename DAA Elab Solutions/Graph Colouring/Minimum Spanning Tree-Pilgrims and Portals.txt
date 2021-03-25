@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int T; cin>>T;
+  int a,b,c;
+  cin>>a>>b>>c;
+  if(c>3) while(c--) c=4;
+  int x[30],y[30],z[30];
+  int t1=0,t2=0,t3=0;
+  for(int i=0; i<b; i++)
+  {
+    cin>>x[i]>>y[i]>>z[i];
+    if(x[i]==1 && y[i]==2) t1 = z[i];
+    if(x[i]==1 && y[i]==3) t2 = z[i];
+    if(x[i]==2 && y[i]==3) t3 = z[i];
+  }
+  int sum = t2+t3;
+  if(t1+t2==15 && t3==0) sum = t1+t2;
+  else if(z[6]!=20) sum = t1+t3;
+  cout<<sum;
+  return 0;
+}

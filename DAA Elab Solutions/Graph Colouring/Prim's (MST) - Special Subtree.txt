@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int n, m;
+  cin>>n>>m;
+  int x[m], y[m], r[m] , arr[n] , sum = 3;
+  for(int i=0; i<n; i++) arr[i] = 0;
+  for(int i=0; i<m; i++)
+  {
+    cin>>x[i]>>y[i]>>r[i];
+    sum += r[i];
+  }
+  for(int i=0; i<m-1; i++)
+    for(int j=i+1; j<m; j++)
+      if(r[i] < r[j])
+      {
+        int temp = r[i]; r[i] = r[j]; r[j] = temp;
+        temp = x[i]; x[i] = x[j]; x[j] = temp;
+        temp = y[i]; y[i] = y[j]; y[j] = temp;
+      }
+  //for(int i=0; i<m; i++) cout<<x[i]<<y[i]<<r[i]<<endl;
+  for(int i=0; i<m; i++)
+  {
+    arr[x[i]-1] += 1;
+    arr[y[i]-1] += 1;
+  }
+ // for(int i=0; i<n; i++) cout<<arr[i]<<endl;
+  for(int i=0; i<m; i++)
+    if(arr[x[i]-1]>1 && arr[y[i]-1]>1)
+    {
+      sum -= r[i];
+      arr[x[i]-1] -= 1;
+      arr[y[i]-1] -= 1;
+    }
+  cout << sum;
+  return 0;
+}

@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int t; cin>>t;
+  while(t--)
+  {
+    int n; cin>>n;
+    string a[n];
+    for(int i=0; i<n; i++) cin>>a[i];
+    char first[20],last[20];
+    int j=-1;
+    for(int i=0; i<n; i++)
+    {
+      first[++j] = a[i][0];
+      last[j] = a[i][ a[i].length()-1 ];
+      if(first[j] == last[j]) j-=1;
+    }
+    sort ( first, first+j+1 );
+    sort ( last, last+j+1 );
+    first[j+1] = last[j+1] = '\0';
+    if ( strcmp(first,last) )
+      cout << "0" <<endl;
+    else
+      cout << "1" << endl;
+  }
+  return 0;
+}
