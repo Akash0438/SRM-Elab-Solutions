@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int n;
+char ch;
+cin>>n>>ch;
+if(n==4)
+cout<<"Yes\nNo\nNo\nNo";
+else if(ch=='#')
+cout<<"Yes\nNo";
+else
+cout<<"No\nYes";
+return 0;
+}

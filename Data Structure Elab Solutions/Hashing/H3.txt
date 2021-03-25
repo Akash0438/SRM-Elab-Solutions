@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef pair < char, int > c_i;
+bool compare(const c_i &A, const c_i &B )
+{
+if( A.second==B.second ) return ( A.first > B.first );
+return ( A.second<B.second );
+}
+int main()
+{
+int T;
+string S;
+cin >> T;
+while( T-- )
+{
+cin >> S;
+vector < c_i > sol;
+for(int i='a'; i<='z'; i++)
+sol.push_back( make_pair( (char)(i), 0 ));
+for(int i=0; i<(int)S.size(); i++)
+sol[ S[i]-'a' ].second++;
+sort( sol.begin(), sol.end(), compare );
+for(int i=0; i<(int)sol.size(); i++)
+cout << sol[i].first << " ";
+cout << endl;
+}
+return 0;
+}

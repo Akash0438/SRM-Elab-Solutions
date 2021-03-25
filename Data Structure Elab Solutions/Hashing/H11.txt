@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+string str;
+while(t--)
+{
+cin>>str;
+int x=0,y=0,z=0,w=0;
+for(int j=0; j<str.size(); j++)
+{
+if(str[j] == 'r')
+x++;
+if(str[j] == 'u')
+y++;
+if(str[j] == 'b')
+z++;
+if(str[j] == 'y')
+w++;
+}
+int a = min(x, y);
+int b = min(z, w);
+int c = min(a, b);
+cout<<c<<endl;
+}
+return 0;
+}

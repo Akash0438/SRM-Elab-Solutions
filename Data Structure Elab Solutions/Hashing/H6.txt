@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+char a[10],b[10];
+cin>>a>>b;
+for(int i=0; i<strlen(a); i++)
+{
+loop:
+for(int j=0; j<strlen(b); j++)
+if(a[i]==b[j])
+{
+b[j]=' ';
+i++;
+goto loop;
+}
+}
+int c=0;
+for(int i=0; i<strlen(b); i++)
+if(b[i]!=' ')
+c++;
+c*=2;
+c-=strlen(b)-strlen(a);
+cout<<c<<endl;
+}
+return 0;
+}

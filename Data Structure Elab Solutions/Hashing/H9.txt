@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+unordered_map<int,int> M;
+int N,maxnum=0;
+cin>>N;
+for(int i=0;i<N;i++)
+{
+int num;
+cin>>num;
+int sum=0;
+int temp=num;
+while(temp)
+{
+sum+=temp%10;
+temp/=10;
+}
+num=(num^sum);
+if(num>maxnum)
+maxnum=num;
+auto it=M.find(num);
+if(it!=M.end())
+it->second++;
+else
+M.insert(make_pair(num,0));
+}
+int answer=0,m=0;
+for(auto it=M.begin();it!=M.end();it++)
+{
+answer+=it->second;
+if(it->second>m)
+m=it->second;
+}
+if(m!=0)
+{
+int minvalue=INT_MAX;
+for(auto it=M.begin();it!=M.end();it++)
+if(it->second==m)
+if(minvalue>it->first)
+minvalue=it->first;
+cout<<minvalue;
+}
+else
+{
+int maxvalue=INT_MIN;
+for(auto it=M.begin();it!=M.end();it++)
+if(it->first>maxvalue)
+maxvalue=it->first;
+cout<<maxvalue;
+}
+cout<<" "<<answer;
+return 0;
+}

@@ -1,0 +1,31 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+int n, m;
+cin >> n >> m;
+int A[n][m];
+for(int i = 0; i < n; i++)
+for(int j = 0; j < m; j++)
+cin >> A[i][j];
+int q;
+cin >> q;
+for(int l = 0; l < q; l++)
+{
+int y;
+cin >> y;
+bool done = false;
+for(int i = 0; i < n; i++)
+for(int j = 0; j < m; j++)
+if(A[i][j] == y)
+{
+cout << i << " " << j << endl;
+done = true;
+break;
+}
+if(!done)
+cout << "-1 -1" << endl;
+}
+return 0;
+}
