@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main()
+{
+int a,b[10],i,max=0,min=100;
+  
+  scanf("%d",&a);
+  for(i=0;i<a;i++) 
+  { 
+    scanf("%d",&b[i]);
+  } 
+    for(i=0;i<a;i++) 
+    { 
+      if(min>b[i]) { min=b[i];} 
+            if(max<b[i]) { max=b[i];} 
+    } 
+  printf("Minimum element in an array : %d\n",min);
+  printf("Maximum element in an array : %d",max);
+ return 0;
+}

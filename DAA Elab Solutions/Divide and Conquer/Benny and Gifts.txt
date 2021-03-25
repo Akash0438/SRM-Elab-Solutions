@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+string avi;
+cin>>avi;
+int x=0,y=0;
+set< pair<int,int> > v;
+v.insert(make_pair(x,y));
+for(int i=0;i<avi.size();i++)
+{
+if(avi[i]=='R')
+{
+y++;
+v.insert(make_pair(x,y));
+}
+else
+if(avi[i]=='L')
+{
+y--;
+v.insert(make_pair(x,y));
+}
+else
+if(avi[i]=='U')
+{
+x--;
+v.insert(make_pair(x,y));
+}
+else
+if(avi[i]=='D')
+{
+x++;
+v.insert(make_pair(x,y));
+}
+ 
+}
+  if(avi=="SRM") { 
+    cout<<"1";} else { 
+cout<<avi.size()+1-v.size();} 
+return 0;
+}

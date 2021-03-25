@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+ 
+using namespace std;
+ 
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+ 
+	int T;
+	cin >> T;
+	while (T--) {
+		int N, M;
+		cin >> N >> M;
+		vector<int> A(N);
+		for (int i = 0; i < N; ++i)
+			cin >> A[i];
+ 
+		sort(A.begin(), A.end());
+ 
+		long double sum = 0;
+		sum += 2 * (A[N - 1] - A[1]);
+		sum += 2 * (A[N - 2] - A[0]);
+		sum += sqrt(2)*(A[1] - A[0]) + sqrt(2)*(A[N - 1] - A[N - 2]);
+		sum = ceil(sum);
+		sum *= M;
+ 
+		cout << (long long)(sum) << '\n';
+	}
+}

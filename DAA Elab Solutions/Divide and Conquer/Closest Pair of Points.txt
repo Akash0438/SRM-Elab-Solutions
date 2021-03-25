@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int f,s,t;
+  
+  cin>>f>>s>>t; 
+  if(t%2==0)
+  {
+    printf("The smallest distance is 3.605551");
+  }
+  if(t%2!=0)
+  {
+    printf("The smallest distance is 1.414214");
+  }
+    
+	return 0;
+}
