@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+vector<int> myvector;
+while(n--)
+{
+int val;
+cin>>val;
+myvector.push_back(val);
+}
+cout<<*min_element(myvector.begin(),myvector.end());
+cout<<" ";
+cout<<*max_element(myvector.begin(),myvector.end());
+return 0;
+}

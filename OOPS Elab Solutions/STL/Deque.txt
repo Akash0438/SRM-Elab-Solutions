@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+int n,k;
+cin>>n>>k;
+int s = n-k;
+deque<int> Q;
+while(n--)
+{
+int val;
+cin>>val;
+Q.push_back(val);
+}
+while(s--)
+{
+cout<<*max_element(Q.begin(),Q.begin()+k)<<" ";
+Q.pop_front();
+}
+cout<<*max_element(Q.begin(),Q.begin()+k)<<endl;
+}
+return 0;
+}

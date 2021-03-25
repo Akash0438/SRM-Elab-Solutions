@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int>parseInts(string str)
+{
+stringstream ss(str);
+vector<int> n;
+int x;
+char y;
+ss>>x;
+n.push_back(x);
+while(ss>>y)
+{
+ss>>x;
+n.push_back(x);
+}
+return n;
+}
+int main()
+{
+string str;
+cin>>str;
+vector<int> n=parseInts(str);
+for(auto i:n)
+cout<<i<<endl;
+return 0;
+}

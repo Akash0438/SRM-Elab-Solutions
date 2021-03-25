@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n,val;
+cin>>n;
+vector<int>i;
+vector<int>j;
+for(int t=0; t<n; t++)
+{
+cin>>val;
+i.push_back(val);
+}
+for(int t=0; t<n; t++)
+{
+cin>>val;
+j.push_back(val);
+}
+reverse(i.begin(),i.end());
+reverse(j.begin(),j.end());
+for(auto a:j) cout<<a<<" ";
+cout<<endl;
+for(auto a:i) cout<<a<<" ";
+return 0;
+}

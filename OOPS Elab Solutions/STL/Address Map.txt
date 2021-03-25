@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+map<int,int>mymap;
+while(n--)
+{
+int a,b;
+cin>>a>>b;
+mymap.insert({a,b});
+}
+int x;
+cin>>x;
+mymap.erase(x);
+for(auto i:mymap)
+cout<<i.first<<" "<<i.second<<endl;
+return 0;
+}

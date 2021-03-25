@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+vector<int> myvector;
+while(n--)
+{
+int val;
+cin>>val;
+myvector.push_back(val);
+}
+vector<int>::iterator i;
+for(i=myvector.begin(); i!=myvector.end(); i++)
+cout<<*i<<" ";
+cout<<endl;
+vector<int>::reverse_iterator j;
+for(j=myvector.rbegin(); j!=myvector.rend(); j++)
+cout<<*j<<" ";
+return 0;
+}
