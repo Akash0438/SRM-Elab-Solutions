@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class Employee
+{
+public:
+int sal;
+virtual int getSalary()=0;
+};
+class Developer:public Employee
+{
+public:
+int getSalary()
+{
+cin>>sal;
+cout<<"Salary of Developer : "<<sal<<endl;
+}
+}obj1;
+class Driver:public Employee
+{
+public:
+int getSalary()
+{
+cin>>sal;
+cout<<"Salary of Driver : "<<sal;
+}
+}obj2;
+int main()
+{
+obj1.getSalary();
+obj2.getSalary();
+return 0;
+}

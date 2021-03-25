@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+class complex
+{
+public:
+int r1,r2,c1,c2,R,C;
+void inp()
+{
+cin>>r1>>c1>>r2>>c2;
+}
+friend void sum(complex obj);
+};
+void sum(complex obj)
+{
+obj.R=obj.r1+obj.r2;
+obj.C=obj.c1+obj.c2;
+cout<<obj.R<<"+i"<<obj.C;
+}
+int main()
+{
+complex obj;
+obj.inp();
+sum(obj);
+return 0;
+}

@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class Point
+{
+int x;
+public:
+Point(int px)
+{
+x=px+1;
+}
+void show()
+{
+cout<<x;
+}
+friend void operator++(Point &);
+};
+void operator++(Point &p)
+{
+}
+int main()
+{
+int a;
+cin>>a;
+Point ob1(a);
+ob1.show();
+return 0;
+}

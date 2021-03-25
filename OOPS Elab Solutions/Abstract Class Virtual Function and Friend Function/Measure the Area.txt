@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+class Shape
+{
+public:
+int a,b;
+virtual int getArea()=0;
+};
+class Rectangle:public Shape
+{
+public:
+int getArea()
+{
+cin>>a>>b;
+return a*b;
+}
+}obj;
+int main()
+{
+cout<<"Area of Rectangle is:"<<obj.getArea();
+return 0;
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class Shape
+{
+public:
+virtual int getPerimeter()=0;
+};
+class Rectangle:public Shape
+{
+public:
+int a,b;
+void input()
+{
+cin>>a>>b;
+}
+int getPerimeter()
+{
+return 2*(a+b);
+}
+};
+int main()
+{
+Shape *s;
+Rectangle r;
+s=&r;
+r.input();
+cout<<"Perimeter of Rectangle is: "<<s->getPerimeter();
+return 0;
+}

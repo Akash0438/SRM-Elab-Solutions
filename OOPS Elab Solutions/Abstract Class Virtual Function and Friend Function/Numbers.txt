@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class Super
+{
+public:
+virtual void nSum()=0;
+};
+class Sub:public Super
+{
+public:
+int n,sum;
+void read()
+{
+cin>>n;
+}
+void nSum()
+{
+sum=n*(n+1)/2;
+cout<<sum;
+}
+};
+int main()
+{
+Super *s;
+Sub sb;
+s=&sb;
+sb.read();
+s->nSum();
+return 0;
+}

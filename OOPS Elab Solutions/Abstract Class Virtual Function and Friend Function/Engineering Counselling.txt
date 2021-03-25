@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+class Counselling
+{
+int num,m,p,c;
+string name;
+public:
+void input()
+{
+cin>>num>>name>>m>>p>>c;
+}
+friend class enggstudent;
+};
+class enggstudent
+{
+public:
+int tot;
+float cut;
+void cutoff(Counselling ob)
+{
+tot=ob.m+ob.p+ob.c;
+cut=tot/3.0;
+}
+void display(Counselling ob)
+{
+cout<<ob.num<<" "<<ob.name<<" ( "<<ob.m<<" "<<ob.p<<" "<<ob.c<<" )
+"<<tot<<" "<<cut<<endl;
+}
+};
+int main()
+{
+enggstudent ceg;
+int n;
+cin>>n;
+cout<<"Number Name Marks Total Cutoff\n";
+Counselling obj;
+for(int i=0; i<n; i++)
+{
+obj.input();
+ceg.cutoff(obj);
+ceg.display(obj);
+}
+return 0;
+}

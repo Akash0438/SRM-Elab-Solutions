@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+class parent
+{
+public:
+virtual float average(int a, int b, int c)=0;
+};
+class child:public parent
+{
+float average(int a, int b, int c)
+{
+float d=a+b+c;
+d=(float)d/3;
+cout<<"Average="<<d;
+return d;
+}
+};
+int main()
+{
+parent *p;
+child c;
+p=&c;
+int a,b,d; cin>>a>>b>>d;
+p->average(a,b,d);
+return 0;
+}

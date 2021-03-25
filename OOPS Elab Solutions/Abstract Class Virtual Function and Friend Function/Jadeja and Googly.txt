@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+class googly
+{
+int n;
+public:
+void getballnumber()
+{
+cin>>n;
+}
+friend int isgoogly(googly o);
+};
+int isgoogly(googly o)
+{
+if(o.n%2==0)
+cout<<"Not a Googly Ball";
+else
+cout<<"Googly Ball";
+}
+int main()
+{
+googly e1;
+e1.getballnumber();
+isgoogly(e1);
+return 0;
+}

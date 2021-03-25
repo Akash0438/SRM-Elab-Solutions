@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class consumer
+{
+public:
+virtual void getdata()=0;
+virtual void display()=0;
+};
+class transaction:public consumer
+{
+public:
+string name,ph;
+int code,q,price;
+void getdata()
+{
+cin>>name>>code>>ph>>q>>price;
+}
+void display()
+{
+cout<<"Name : "<<name<<"\nCode : "<<code<<"\nTelephone :
+"<<ph<<"\nQuantity : "<<q<<"\nPrice : "<<price<<"\nTotal Price : "<<q*price;
+}
+};
+int main()
+{
+consumer *p;
+transaction obj;
+p=&obj;
+p->getdata();
+p->display();
+return 0;
+}

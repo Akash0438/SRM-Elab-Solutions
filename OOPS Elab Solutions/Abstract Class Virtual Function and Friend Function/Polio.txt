@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class country
+{
+public:
+virtual void getdata()=0;
+virtual void display()=0;
+};
+class state:public country
+{
+public:
+string cnt,st;
+int a,b,c,d;
+void getdata()
+{
+cin>>cnt>>a>>b>>st>>c>>d;
+}
+void display()
+{
+cout<<"Country Name "<<cnt<<endl;
+cout<<"Country Polio% "<<a<<endl;
+cout<<"Country Litteracy%"<<b<<endl;
+cout<<"The Measure of Interdependency "<<(float)a/b<<endl;
+cout<<"State Name "<<st<<endl;
+cout<<"%Age of Polio of State "<<c<<endl;
+cout<<"%Age of Literacy of State "<<d<<endl;
+cout<<"The Measure of Interdependency "<<(float)c/d<<endl;
+}
+};
+int main()
+{
+country *c;
+state p;
+c=&p;
+c->getdata();
+c->display();
+return 0;
+}

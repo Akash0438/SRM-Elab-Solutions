@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class Sports
+{
+public:
+int num;
+string name;
+virtual void getdata()=0;
+virtual void display()=0;
+};
+class Student:public Sports
+{
+public:
+void getdata()
+{
+cin>>num>>name;
+}
+void display()
+{
+cout<<"Student Name is: "<<name<<endl<<"Student Roll no is: "<<num;
+}
+}obj;
+int main()
+{
+obj.getdata();
+obj.display();
+return 0;
+}
