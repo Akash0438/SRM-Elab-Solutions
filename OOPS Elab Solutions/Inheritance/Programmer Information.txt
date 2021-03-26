@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+class person
+{
+public:
+string name,gender;
+int age;
+void getdata()
+{
+cin>>name>>age>>gender;
+}
+void display()
+{
+cout<<"Name: "<<name;
+cout<<"\nAge: "<<age;
+cout<<"\nGender: "<<gender;
+}
+};
+class employee:public person
+{
+public:
+string company;
+int salary;
+void getdata()
+{
+cin>>company>>salary;
+}
+void display()
+{
+cout<<"\nName of Company: "<<company;
+cout<<"\nSalary: Rs."<<salary;
+}
+};
+class programmer:public employee
+{
+public:
+int languages;
+void getdata()
+{
+cin>>languages;
+}
+void display()
+{
+cout<<"\nNumber of programming language known: "<<languages;
+}
+};
+int main()
+{
+programmer p;
+p.person::getdata();
+p.employee::getdata();
+p.programmer::getdata();
+p.person::display();
+p.employee::display();
+p.programmer::display();
+return 0;
+}

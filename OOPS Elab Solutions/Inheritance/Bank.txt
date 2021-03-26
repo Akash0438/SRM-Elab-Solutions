@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Bank
+{
+public:
+string name;
+int id;
+void getin()
+{
+cin>>name>>id;
+}
+};
+class Customer
+{
+public:
+int num,bal;
+void get()
+{
+cin>>num>>bal;
+}
+};
+class Account:public Customer,public Bank
+{
+public:
+void disp()
+{
+cout<<"Customer Name="<<name<<"\nCustomer Id="<<id<<endl;
+cout<<"Account No="<<num<<"\nAccount
+Balance="<<bal<<endl<<"Interest="<<bal*9/25;
+}
+};
+int main()
+{
+Account obj;
+obj.getin();
+obj.get();
+obj.disp();
+return 0;
+}

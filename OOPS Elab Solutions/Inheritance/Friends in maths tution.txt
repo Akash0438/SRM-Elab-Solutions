@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class A
+{
+public:
+int n;
+void display()
+{
+cin>>n;
+}
+}a;
+class B
+{
+public:
+int p;
+void display()
+{
+cin>>p;
+}
+}b;
+class C:public A,public B
+{
+public:
+void display()
+{
+a.display();
+b.display();
+cout<<a.n*b.p;
+}
+};
+int main()
+{
+C sample;
+sample.display();
+return 0;
+}

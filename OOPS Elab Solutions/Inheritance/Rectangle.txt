@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+class Area
+{
+public:
+int getArea(int length, int width)
+{
+int A;
+A=length*width;
+return A;
+}
+};
+class Perimeter
+{
+public:
+int getPerimeter(int length, int width)
+{
+int P;
+P=(length+width)*2;
+return P;
+}
+};
+class Rectangle:public Area,public Perimeter
+{
+public:
+int l,b;
+Area ar;
+Perimeter pe;
+void disp()
+{
+cin>>l>>b;
+cout<<ar.getArea(l,b)<<endl<<pe.getPerimeter(l,b);
+}
+};
+int main()
+{
+Rectangle rt;
+rt.disp();
+return 0;
+}

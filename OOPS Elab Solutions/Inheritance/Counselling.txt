@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class Student
+{
+public:
+virtual void getDetails()=0;
+virtual void displayDetails()=0;
+};
+class StudentDetails:public Student
+{
+string a,b;
+float c;
+public:
+void getDetails()
+{
+cin>>a>>b>>c;
+}
+void displayDetails()
+{
+cout<<a<<endl<<b<<endl<<c;
+}
+};
+int main()
+{
+StudentDetails sd;
+sd.getDetails();
+sd.displayDetails();
+return 0;
+}

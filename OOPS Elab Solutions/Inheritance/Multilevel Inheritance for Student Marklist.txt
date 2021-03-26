@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+class Student
+{
+public:
+int c,d;
+string a,b;
+};
+class Grade:public Student
+{
+public:
+Grade()
+{
+cin>>a>>b>>c>>d;
+}
+char calculate()
+{
+if(d<=100 && d>=90)
+return 'O';
+else if(d<90 && d>=75)
+return 'A';
+else if(d<75 && d>=60)
+return 'B';
+else if(d<60 && d>=40)
+return 'C';
+else
+return 'D';
+}
+void display()
+{
+cout<<"First Name: "<<a<<"\nLast Name: "<<b<<"\nPhone: "<<c<<"\nGrade: ";
+}
+};
+int main()
+{
+Grade obj;
+obj.display();
+cout<<obj.calculate();
+return 0;
+}

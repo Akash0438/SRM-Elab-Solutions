@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class A
+{
+public:
+int a;
+};
+class B:public A
+{
+public:
+B()
+{
+cin>>a;
+}
+};
+class C
+{
+public:
+int b;
+C()
+{
+cin>>b;
+}
+};
+class D:public B,public C
+{
+public:
+void sum()
+{
+cout<<"Sum= "<<a+b;
+}
+};
+int main()
+{
+D obj;
+obj.sum();
+return 0;
+}

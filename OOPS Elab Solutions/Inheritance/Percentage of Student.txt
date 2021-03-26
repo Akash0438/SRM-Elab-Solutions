@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+class AddData
+{
+public:
+int a,b,c;
+void accept_details()
+{
+cin>>a>>b>>c;
+}
+};
+class Total : public AddData
+{
+public:
+int sum;
+void total_of_three_subjects()
+{
+sum=a+b+c;
+}
+};
+class Percentage : public Total
+{
+int per;
+public:
+void calculate_percentage()
+{
+per=sum/3;
+}
+void show_result()
+{
+cout<<per;
+}
+};
+int main()
+{
+Percentage p;
+p.accept_details();
+p.total_of_three_subjects();
+p.calculate_percentage();
+p.show_result();
+return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class student
+{
+public:
+int r,m1,m2;
+void get()
+{
+cin>>r>>m1>>m2;
+}
+}a;
+class sports
+{
+public:
+int m3;
+void get()
+{
+cin>>m3;
+}
+}b;
+class statement:public student,public sports
+{
+public:
+void put()
+{
+a.get();
+b.get();
+cout<<"Roll
+No:"<<a.r<<endl<<"Total:"<<a.m1+a.m2+b.m3<<endl<<"Average:"<<(a.m1+a.m2+b
+.m3)/3;
+}
+};
+int main()
+{
+statement c;
+c.put();
+return 0;
+}
