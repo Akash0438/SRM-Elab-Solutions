@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class matrix
+{
+int a1,b1,a2,b2;
+float A,B,res1,res2;
+public:
+matrix operator *()
+{
+res1=(a1*A)+(b1*B);
+res2=(a2*A)+(b2*B);
+}
+void get()
+{
+cin>>a1>>b1>>a2>>b2>>A>>B;
+}
+void put()
+{
+cout<<res1<<endl<<res2;
+}
+};
+int main()
+{
+matrix obj;
+obj.get();
+obj.operator *();
+obj.put();
+return 0;
+}

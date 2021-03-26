@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class vector
+{
+int x,y,z;
+public:
+void get()
+{ cin>>x>>y>>z; }
+void put()
+{ cout<<"Sum="<<x<<"i+"<<y<<"j+"<<z<<"z"; }
+vector operator+(vector b)
+{
+vector a;
+a.x=x+b.x;
+a.y=y+b.y;
+a.z=z+b.z;
+return a;
+}
+};
+int main()
+{
+vector a,b,sum;
+a.get();
+b.get();
+sum=a+b;
+sum.put();
+return 0;
+}

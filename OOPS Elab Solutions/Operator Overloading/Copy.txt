@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+class mystring
+{
+public:
+void operator == (string s)
+{ cout<<"Copied String is:"<<s; }
+};
+int main()
+{
+mystring obj;
+string s;
+cin>>s;
+obj.operator ==(s);
+return 0;
+}

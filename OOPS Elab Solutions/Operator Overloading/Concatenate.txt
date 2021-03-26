@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+class concatenate
+{
+string a,b;
+public:
+void read() { cin>>a>>b; }
+void operator + () { cout<<a<<b; }
+};
+int main()
+{
+concatenate obj;
+obj.read();
+obj.operator +();
+return 0;
+}

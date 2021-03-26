@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+class data
+{
+int a,b;
+public:
+void setdata()
+{
+cin>>a>>b;
+cout<<-a<<" "<<-b<<endl;
+}
+};
+int main()
+{
+data obj;
+obj.setdata();
+obj.setdata();
+return 0;
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class increment
+{
+double x,y,z;
+public: void getx()
+{
+cin>>x>>y>>z;
+}
+void operator++();
+}obj;
+void increment::operator ++()
+{
+x+=1;
+y+=1;
+z+=1;
+cout<<x<<" "<<y<<" "<<z;
+}
+int main()
+{
+obj.getx();
+obj.operator++();
+return 0;
+}

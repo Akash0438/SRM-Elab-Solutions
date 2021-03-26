@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class Distance
+{
+int feet,inches;
+public:
+void readDistance(void)
+{
+cin>>feet>>inches;
+}
+Distance operator +(Distance d3)
+{
+Distance d5;
+d5.feet=this->feet+d3.feet;
+d5.inches=this->inches+d3.inches;
+while(d5.inches>11)
+{
+d5.feet+=1;
+d5.inches-=12;
+}
+return d5;
+}
+void dispDistance()
+{
+cout<<"Feet:"<<feet<<" Inches:"<<inches;
+}
+};
+int main()
+{
+Distance d1,d2,d6;
+d1.readDistance();
+d2.readDistance();
+d6=d2+d1;
+d6.dispDistance();
+return 0;
+}

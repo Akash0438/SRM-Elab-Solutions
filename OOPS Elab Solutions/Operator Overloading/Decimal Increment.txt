@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class Decimal
+{
+float a;
+public:
+void input()
+{
+cin>>a;
+}
+void operator ++()
+{
+a=a+0.10;
+cout<<a;
+}
+};
+int main()
+{
+Decimal obj;
+obj.input();
+obj.operator ++();
+return 0;
+}

@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+class Money
+{
+int rupees,paise;
+public:
+void setMoney(int r, int p)
+{
+rupees=r;
+paise=p;
+}
+Money operator +(Money o)
+{
+Money plus;
+plus.rupees=rupees+o.rupees;
+plus.paise=paise+o.paise;
+return plus;
+}
+Money operator -(Money o)
+{
+Money minus;
+minus.rupees=rupees-o.rupees;
+minus.paise=paise-o.paise;
+return minus;
+}
+void print()
+{
+cout<<"Rs="<<rupees<<" and "<<paise<<" Paise";
+}
+};
+int main()
+{
+int r1,r2,r3,p1,p2,p3,totalR,totalP;
+cin>>r1>>p1>>r2>>p2>>r3>>p3;
+Money m1,m2,m3,m4;
+m1.setMoney(r1,p1);
+m2.setMoney(r2,p2);
+m3.setMoney(r3,p3);
+m4=m1+m2-m3;
+m4.print();
+return 0;
+}

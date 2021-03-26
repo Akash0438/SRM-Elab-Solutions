@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+class Time
+{
+int hours,mins,secs;
+void operator <<(int a)
+{
+}
+void operator >>(int a)
+{
+}
+};
+int main()
+{
+int h,m,s;
+cin>>h>>m>>s;
+cout<<h<<" Hours "<<m<<" Mins "<<s<<" secs";
+return 0;
+}

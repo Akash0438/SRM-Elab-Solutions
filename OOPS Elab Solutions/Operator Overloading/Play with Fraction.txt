@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class Fraction
+{
+int x,y;
+public:
+void get()
+{ cin>>x>>y; }
+void put()
+{ cout<<x<<"/"<<y; }
+Fraction operator+(Fraction b)
+{
+Fraction a;
+a.x=x*b.y+y*b.x;
+a.y=y*b.y;
+return a;
+}
+};
+int main()
+{
+Fraction obj,obj2,sum;
+obj.get();
+obj2.get();
+sum=obj+obj2;
+sum.put();
+return 0;
+}
