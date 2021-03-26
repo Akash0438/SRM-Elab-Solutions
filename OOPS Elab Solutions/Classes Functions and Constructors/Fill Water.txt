@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+class Box
+{
+double l,b,h;
+public:
+Box()
+{
+l=0;
+b=0;
+h=0;
+}
+Box(double samevalue)
+{
+l=samevalue;
+b=samevalue;
+h=samevalue;
+}
+double Volume()
+{
+return l*b*h;
+}
+};
+int main()
+{
+double a,Vol;
+cin>>a;
+Box b1;
+Box b2(a);
+cout<<b1.Volume();
+cout<<endl;
+cout<<b2.Volume();
+return 0;
+}

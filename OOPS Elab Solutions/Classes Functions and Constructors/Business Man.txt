@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class profit
+{
+public:
+profit(int income,int expenses)
+{
+cout<<income-expenses;
+}
+};
+int main()
+{
+int inc,exp;
+cin>>inc>>exp;
+profit s1(inc,exp);
+return 0;
+}

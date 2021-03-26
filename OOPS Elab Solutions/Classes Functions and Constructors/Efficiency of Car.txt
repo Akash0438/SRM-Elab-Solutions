@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+class Car
+{
+public:
+float startMiles, endMiles, litres;
+int perlitre;
+void initializeData(float s,float e,float l)
+{
+cin>>startMiles>>endMiles>>litres;
+}
+float getstartMiles()
+{
+return startMiles;
+}
+float getEndMiles()
+{
+return endMiles;
+}
+float getLitres()
+{
+return litres;
+}
+double calculateMPL()
+{
+perlitre = (endMiles-startMiles)/litres;
+return perlitre;
+}
+string isEconomycar()
+{
+if(perlitre>18)
+return "true";
+else if(perlitre<18)
+return "false";
+else
+return "Improper readings";
+}
+};
+int main()
+{
+Car obj;
+float a, b, c;
+obj.startMiles;
+obj.endMiles;
+obj.litres;
+obj.perlitre;
+obj.initializeData(a, b, c);
+if(obj.calculateMPL()>=0)
+{
+cout<<obj.getstartMiles()<<endl;
+cout<<obj.getEndMiles()<<endl;
+cout<<obj.calculateMPL()<<endl;
+cout<<obj.getLitres()<<endl;
+cout<<obj.isEconomycar()<<endl;
+}
+else
+cout<<"Improper readings"<<endl;
+return 0;
+}

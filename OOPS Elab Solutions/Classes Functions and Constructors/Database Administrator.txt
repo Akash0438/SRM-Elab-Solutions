@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+class StudentData
+{
+public:
+StudentData()
+{
+cout<<"Student Name is: New Student"<<endl;
+}
+StudentData(string stuName)
+{
+cout<<"Student Name is: "<<stuName;
+}
+};
+int main()
+{
+string name;
+cin>>name;
+StudentData myobj1;
+StudentData myobj2(name);
+return 0;
+}

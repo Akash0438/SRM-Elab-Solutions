@@ -1,0 +1,22 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+class profit
+{
+float p;
+public:
+profit() { p=0; }
+profit(int income,int expenses)
+{
+p=(float)(income-expenses)/expenses*100;
+cout<<setprecision(5)<<p<<"%";
+}
+};
+int main()
+{
+profit share;
+int inc,exp;
+cin>>inc>>exp;
+profit s(inc,exp);
+return 0;
+}

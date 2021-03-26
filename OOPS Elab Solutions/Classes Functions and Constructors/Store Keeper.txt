@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+class Store
+{
+public:
+int itemcount(int id)
+{ cout<<id<<endl; }
+int itemcount(int totalavl,int consumed)
+{ cout<<totalavl-consumed; }
+}ob;
+int main()
+{
+int i,t,c;
+cin>>i>>t>>c;
+ob.itemcount(i);
+ob.itemcount(t,c);
+return 0;
+}

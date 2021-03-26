@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int a[]={0,0,0,0,0,0,0,0,0,0,0,0};
+class Code
+{
+int number;
+public:
+void initializeData(int n)
+{ number=n; }
+int convertToStraightBinary()
+{
+int i=11;
+while(i!=0)
+{
+a[i]=number%2;
+number/=2;
+i--;
+}
+}
+};
+int main()
+{
+Code obj;
+int n;
+cin>>n;
+obj.initializeData(n);
+obj.convertToStraightBinary();
+int i=-13;
+while(++i)
+cout<<a[i+12];
+return 0;
+}
