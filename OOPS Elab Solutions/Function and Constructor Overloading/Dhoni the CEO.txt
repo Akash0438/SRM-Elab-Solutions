@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class Salary
+{
+public:
+Salary()
+{
+int deftsalary;
+deftsalary=10000;
+cout<<deftsalary<<endl;
+}
+Salary(int Exp)
+{
+cout<<Exp<<endl;
+}
+};
+int main()
+{
+Salary myobj;
+int Exp;
+cin>>Exp;
+Salary myobj2(Exp);
+return 0;
+}

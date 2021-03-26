@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class Appraisal
+{
+public:
+int sal,a;
+void in()
+{
+cin>>a;
+cout<<"Old Salary:"<<sal<<endl;
+cout<<"New Salary:"<<a<<endl;
+}
+Appraisal()
+{
+sal=30000;
+}
+};
+int main()
+{
+Appraisal myobj;
+Appraisal myobj2;
+myobj.in();
+return 0;
+}

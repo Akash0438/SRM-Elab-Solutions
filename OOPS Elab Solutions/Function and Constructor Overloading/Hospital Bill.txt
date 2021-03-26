@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class Hospital
+{
+public:
+float bill(float medicines, float days)
+{ return medicines*days; }
+int bill(int room, int days)
+{ return room*days; }
+}ob;
+int main()
+{
+float med,day; int room,days;
+cin>>med>>day>>room>>days;
+cout<<ob.bill(med,day)<<endl<<ob.bill(room,days);
+return 0;
+}

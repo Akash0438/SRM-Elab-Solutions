@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class Student
+{
+public:
+void Identity(char name[100],int id)
+{
+cout<<name<<" "<<id<<endl;
+}
+void Identity(int id,char name[100])
+{
+cout<<name<<" "<<id<<endl;
+}
+};
+int main()
+{
+Student s1;
+int id,id2;
+char name[100],name2[100];
+cin>>name>>id>>id2>>name2;
+s1.Identity(name,id);
+s1.Identity(id2,name2);
+return 0;
+}
