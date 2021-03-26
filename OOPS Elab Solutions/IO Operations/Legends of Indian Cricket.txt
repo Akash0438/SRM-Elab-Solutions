@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+string ones[]={ "","one ","two ","three ","four ","five ","six ","seven ","eight ","nine
+","ten ","eleven ","twelve ","thirteen ","fourteen ","fifteen ","sixteen ","seventeen
+","eighteen ","nineteen "};
+string tens[]={ "","","twenty ","thirty ","forty ","fifty ","sixty ","seventy ","eighty
+","ninety "};
+string words(int n,string s)
+{
+string str;
+if(n>19)
+str=tens[n/10]+ones[n%10];
+else
+str=ones[n];
+if(n)
+str+=s;
+return str;
+}
+int main()
+{
+int n;
+cin>>n;
+string out="";
+out+=words(n/1000,"thousand ");
+n%=1000;
+out+=words(n/100,"hundred and ");
+n%=100;
+out+=words(n,"");
+cout<<out;
+return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int r,s;
+cin>>r>>s;
+int a1=r*r*22/7;
+int a2=s*s;
+if(a1>a2)
+cout<<"I prefer centre 1";
+else
+cout<<"I prefer centre 2";
+return 0;
+}

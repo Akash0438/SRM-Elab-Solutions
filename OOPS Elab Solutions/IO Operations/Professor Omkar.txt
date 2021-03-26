@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+int m,i,f;
+cin>>m>>i>>f;
+float q=m*(f-i)*4184;
+cout<<"The energy needed is "<<q;
+return 0;
+}

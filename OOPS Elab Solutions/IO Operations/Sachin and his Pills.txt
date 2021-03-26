@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int m31[]={1,3,5,7,8,10,12};
+int m30[]={4,6,9,11};
+int main()
+{
+int t;
+cin>>t;
+while(t--)
+{
+int y,m,d;
+char lol;
+std::cin>>y>>lol>>m>>lol>>d;
+int result;
+for(int i=0; i<7; i++)
+{
+if(m==m31[i]) result=(33-d)/2;
+if(m==m30[i]) result=(63-d)/2;
+}
+if(m==2) result=(61-d)/2;
+cout<<result<<endl;
+}
+return 0;
+}
