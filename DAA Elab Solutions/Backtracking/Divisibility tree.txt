@@ -36,8 +36,8 @@ int main()
   return 0;
 }
 
-The above one is proper code passes only two test cases
-Cracked version code:
+//The above one is proper code passes only two test cases
+//Cracked version code:
 #include <stdio.h>
 int main()
 {
